@@ -65,7 +65,7 @@ class MyApp extends LitElement {
 
       [main-title] {
         font-family: 'Pacifico';
-        text-transform: lowercase;
+        text-transform: Upercase;
         font-size: 30px;
         /* In the narrow layout, the toolbar is offset by the width of the
         drawer button, and the text looks not centered. Add a padding to
@@ -83,6 +83,7 @@ class MyApp extends LitElement {
         text-decoration: none;
         line-height: 30px;
         padding: 4px 24px;
+        font-size: .9rem;
       }
 
       .toolbar-list > a[selected] {
@@ -173,15 +174,17 @@ class MyApp extends LitElement {
       <app-toolbar class="toolbar-top">
         <button class="menu-btn" title="Menu" @click="${this._menuButtonClicked}">${menuIcon}</button>
         <div main-title>${this.appTitle}</div>
-      </app-toolbar>
 
-      <!-- This gets hidden on a small screen-->
+
+         <!-- This gets hidden on a small screen-->
       <nav class="toolbar-list">
         <a ?selected="${this._page === 'view1'}" href="/view1">Inicio</a>
         <a ?selected="${this._page === 'view2'}" href="/view2">Passeios</a>
         <a ?selected="${this._page === 'view3'}" href="/view3">Blog</a>
         <a ?selected="${this._page === 'view4'}" href="/view4">Nós</a>
       </nav>
+      </app-toolbar>
+  
     </app-header>
 
     <!-- Drawer content -->
