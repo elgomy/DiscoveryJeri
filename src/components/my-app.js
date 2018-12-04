@@ -177,9 +177,10 @@ class MyApp extends LitElement {
 
       <!-- This gets hidden on a small screen-->
       <nav class="toolbar-list">
-        <a ?selected="${this._page === 'view1'}" href="/view1">View One</a>
-        <a ?selected="${this._page === 'view2'}" href="/view2">View Two</a>
-        <a ?selected="${this._page === 'view3'}" href="/view3">View Three</a>
+        <a ?selected="${this._page === 'view1'}" href="/view1">Inicio</a>
+        <a ?selected="${this._page === 'view2'}" href="/view2">Passeios</a>
+        <a ?selected="${this._page === 'view3'}" href="/view3">Blog</a>
+        <a ?selected="${this._page === 'view4'}" href="/view4">Nós</a>
       </nav>
     </app-header>
 
@@ -187,9 +188,10 @@ class MyApp extends LitElement {
     <app-drawer .opened="${this._drawerOpened}"
         @opened-changed="${this._drawerOpenedChanged}">
       <nav class="drawer-list">
-        <a ?selected="${this._page === 'view1'}" href="/view1">View One</a>
-        <a ?selected="${this._page === 'view2'}" href="/view2">View Two</a>
-        <a ?selected="${this._page === 'view3'}" href="/view3">View Three</a>
+        <a ?selected="${this._page === 'view1'}" href="/view1">Inicio</a>
+        <a ?selected="${this._page === 'view2'}" href="/view2">Passeios</a>
+        <a ?selected="${this._page === 'view3'}" href="/view3">Blog</a>
+        <a ?selected="${this._page === 'view4'}" href="/view4">Nós</a>
       </nav>
     </app-drawer>
 
@@ -198,6 +200,7 @@ class MyApp extends LitElement {
       <my-view1 class="page" ?active="${this._page === 'view1'}"></my-view1>
       <my-view2 class="page" ?active="${this._page === 'view2'}"></my-view2>
       <my-view3 class="page" ?active="${this._page === 'view3'}"></my-view3>
+      <my-view4 class="page" ?active="${this._page === 'view4'}"></my-view4>
       <my-view404 class="page" ?active="${this._page === 'view404'}"></my-view404>
     </main>
 
@@ -295,6 +298,9 @@ class MyApp extends LitElement {
         break;
       case 'view3':
         import('../components/my-view3.js');
+        break;
+      case 'view4':
+        import('../components/my-view4.js');
         break;
       default:
         page = 'view404';
