@@ -18,6 +18,21 @@ class MyView1 extends PageViewElement {
   render() {
     return html`
       ${SharedStyles}
+      
+      <style>
+        .front-header{
+          background: url('../images/back1.jpeg') no-repeat;
+          background-size: 100% auto;
+          height: 80vh;
+          width: 100vw;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          padding-top: 85px;             
+        }
+      </style>
+
+      <div class="front-header"></div>
+      
       <section>
         <h2>Static page</h2>
         <p>This is a text-only page.</p>

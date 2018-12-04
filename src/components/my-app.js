@@ -53,15 +53,23 @@ class MyApp extends LitElement {
         top: 0;
         left: 0;
         width: 100%;
-        text-align: center;
-        background-color: var(--app-header-background-color);
-        color: var(--app-header-text-color);
-        border-bottom: 1px solid #eee;
+        text-align: center;    
+        color: var(--app-light-text-color);
+        
       }
 
-      .toolbar-top {
-        background-color: var(--app-header-background-color);
+      .header-transparent{
+        background-color: transparent;
       }
+
+      .header-solid{
+        background: #49a5bf; /* Old browsers */
+        background: -webkit-linear-gradient(left, #49a5bf 0%, #6bb1bc 30%, #93cede 98%, #93cede 98%, #93cede 100%, #75bdd1 100%);
+        background: -o-linear-gradient(left, #49a5bf 0%, #6bb1bc 30%, #93cede 98%, #93cede 98%, #93cede 100%, #75bdd1 100%);
+        background: linear-gradient(to right, #49a5bf 0%, #6bb1bc 30%, #93cede 98%, #93cede 98%, #93cede 100%, #75bdd1 100%); /* FF3.6-15 */ /* Chrome10-25,Safari5.1-6 */ /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      }
+
+      
 
       [main-title] {
         font-family: 'Pacifico';
@@ -79,11 +87,13 @@ class MyApp extends LitElement {
 
       .toolbar-list > a {
         display: inline-block;
-        color: var(--app-header-text-color);
+        color: var(--app-light-text-color);
         text-decoration: none;
+        font-weight: 700;
         line-height: 30px;
         padding: 4px 24px;
         font-size: .9rem;
+
       }
 
       .toolbar-list > a[selected] {
@@ -94,7 +104,7 @@ class MyApp extends LitElement {
       .menu-btn {
         background: none;
         border: none;
-        fill: var(--app-header-text-color);
+        fill: var( --app-light-text-color);
         cursor: pointer;
         height: 44px;
         width: 44px;
@@ -161,6 +171,10 @@ class MyApp extends LitElement {
           padding-top: 107px;
         }
 
+        .main-content_frontpage{
+          padding-top: 0px;
+        }
+
         /* The drawer button isn't shown in the wide layout, so we don't
         need to offset the title */
         [main-title] {
@@ -170,8 +184,8 @@ class MyApp extends LitElement {
     </style>
 
     <!-- Header -->
-    <app-header condenses reveals effects="waterfall">
-      <app-toolbar class="toolbar-top">
+    <app-header condenses reveals effects="waterfall" class="${this._page === 'view1'?'header-transparent':'header-solid'}">
+      <app-toolbar>
         <button class="menu-btn" title="Menu" @click="${this._menuButtonClicked}">${menuIcon}</button>
         <div main-title>${this.appTitle}</div>
 
@@ -199,7 +213,7 @@ class MyApp extends LitElement {
     </app-drawer>
 
     <!-- Main content -->
-    <main role="main" class="main-content">
+    <main role="main" class="${this._page === 'view1'?'main-content_frontpage':'main-content'}">
       <my-view1 class="page" ?active="${this._page === 'view1'}"></my-view1>
       <my-view2 class="page" ?active="${this._page === 'view2'}"></my-view2>
       <my-view3 class="page" ?active="${this._page === 'view3'}"></my-view3>
