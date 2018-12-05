@@ -23,15 +23,41 @@ class MyView1 extends PageViewElement {
         .front-header{
           background: url('../images/back1.jpeg') no-repeat;
           background-size: 100% auto;
-          height: 80vh;
+          height: 90vh;
           width: 100vw;
           display: grid;
           grid-template-columns: 1fr 1fr;
           padding-top: 85px;             
         }
+
+
+
+         .front-header p{
+
+          font-family: VimSM;
+          font-size: calc(24px + (116 - 18) * ((100vw - 300px) / (1600 - 300)));
+          font-weight: 800;
+          color: white;
+          margin: 4px 15px;
+          line-height: 90%;
+          text-align: center;
+        }
+
+        /* Wide layout: when the viewport width is bigger than 460px, layout
+      changes to a wide layout. */
+      @media (min-width: 460px) {
+        
+        .front-header p{
+          margin: 30px 15px;
+        }
+
+      }
+
       </style>
 
-      <div class="front-header"></div>
+      <div class="front-header">
+        <p>Reserva E Sonha</p> 
+      </div>
       
       <section>
         <h2>Static page</h2>
