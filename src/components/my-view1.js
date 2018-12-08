@@ -14,58 +14,97 @@ import { PageViewElement } from './page-view-element.js';
 // These are the shared styles needed by this element.
 import { SharedStyles } from './shared-styles.js';
 
+import './vaadin-form.js';
+
+
 class MyView1 extends PageViewElement {
   render() {
     return html`
       ${SharedStyles}
       
       <style>
-        .front-header{
+        
+        :host{
+          
+        }
+
+        .front-header_container{
           background: url('../images/back1.jpeg') no-repeat;
           background-size: 100% auto;
-          height: 90vh;
+          height: 20vh;
           width: 100vw;
           display: grid;
           grid-template-columns: 1fr 1fr;
-          padding-top: 85px;             
+          padding-top: 95px;                      
         }
 
-
-
-         .front-header p{
-
+        .front-header_container p{          
           font-family: VimSM;
-          font-size: calc(24px + (116 - 18) * ((100vw - 300px) / (1600 - 300)));
+          font-size: calc(30px + (116 - 24) * ((100vw - 300px) / (1600 - 300)));
           font-weight: 800;
-          color: white;
-          margin: 4px 15px;
+          color: white;      
           line-height: 90%;
           text-align: center;
+          grid-column: 1/3;                
+        }     
+
+        .header-form{
+          display:none;
         }
 
-        /* Wide layout: when the viewport width is bigger than 460px, layout
-      changes to a wide layout. */
-      @media (min-width: 460px) {
-        
-        .front-header p{
-          margin: 30px 15px;
+        .body-form_container{
+          display: grid;
+          grid-template-columns:1;
         }
 
-      }
+        .body-form{
+          justify-self: center;
+          align-self: center;
+        }
+
+        @media (min-width: 580px) and (max-width: 950px){
+          .front-header_container{
+            height: 40vh;
+          }
+        }
+
+        @media (min-width: 950px) {
+
+          .header-form{         
+            justify-self: center;
+            align-self: center;
+            display:block;
+          }
+
+          .front-header_container{
+            height: 90vh;
+            width: 100vw;
+          }
+          
+          .front-header_container p{
+            margin: 30px 15px;
+            grid-column: 2/3;
+          }
+
+          .body-form{
+            display:none;
+          }    
+
+        }
 
       </style>
 
-      <div class="front-header">
-        <p>Reserva E Sonha</p> 
+      <div class="front-header_container">
+        <vaadin-form class="header-form"></vaadin-form>
+        <p>Reserva E Sonha</p>           
+      </div>
+      
+      <div class="body-form_container">
+        <vaadin-form class="body-form"></vaadin-form>
       </div>
       
       <section>
-        <h2>Static page</h2>
-        <p>This is a text-only page.</p>
-        <p>It doesn't do anything other than display some static text.</p>
-      </section>
-      <section>
-        <h2>Welcome</h2>
+         
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac nisi orci. Maecenas sollicitudin diam in diam efficitur cursus. Morbi sollicitudin in justo tincidunt placerat. Integer tincidunt elementum nisi, eu ornare dolor lacinia eget. Fusce pulvinar massa eget odio placerat, commodo molestie ipsum tempus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse porttitor id purus eu cursus. Suspendisse arcu nulla, mattis vel hendrerit et, malesuada a elit. Nam at diam ornare, aliquet est sed, malesuada metus. Cras nec enim vel nibh tincidunt euismod ut et enim. Etiam pharetra eros in sodales iaculis. Duis sagittis urna et cursus mollis. Cras tempor rutrum est. Praesent sollicitudin ligula at laoreet placerat. Praesent tortor dui, semper in sapien non, pharetra luctus turpis.</p>
       </section>
       <section>
