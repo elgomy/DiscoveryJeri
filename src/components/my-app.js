@@ -23,6 +23,8 @@ import '@polymer/app-layout/app-toolbar/app-toolbar.js';
 import { menuIcon } from './my-icons.js';
 import './snack-bar.js';
 
+
+
 class MyApp extends LitElement {
   render() {
     // Anything that's related to rendering should be done in here.
@@ -32,7 +34,7 @@ class MyApp extends LitElement {
         --app-drawer-width: 256px;
         display: block;
 
-        --app-primary-color: #E91E63;
+        --app-primary-color: white;
         --app-secondary-color: #293237;
         --app-dark-text-color: var(--app-secondary-color);
         --app-light-text-color: white;
@@ -40,6 +42,7 @@ class MyApp extends LitElement {
         --app-section-odd-color: white;
 
         --app-header-background-color: white;
+        
         --app-header-text-color: var(--app-dark-text-color);
         --app-header-selected-color: var(--app-primary-color);
 
@@ -137,7 +140,7 @@ class MyApp extends LitElement {
       }
 
       .main-content {
-        padding-top: 64px;
+        padding-top: 84px;
         min-height: 100vh;
       }
 
@@ -154,11 +157,17 @@ class MyApp extends LitElement {
         background: var(--app-drawer-background-color);
         color: var(--app-drawer-text-color);
         text-align: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr
+      }
+
+      .footer_icons{
+        grid-columns: 1/6
       }
 
       /* Wide layout: when the viewport width is bigger than 460px, layout
       changes to a wide layout. */
-      @media (min-width: 460px) {
+      @media (min-width: 650px) {
         .toolbar-list {
           display: block;
         }
@@ -183,6 +192,8 @@ class MyApp extends LitElement {
       }
     </style>
 
+    
+
     <!-- Header -->
     <app-header condenses reveals effects="waterfall" class="${this._page === 'view1'?'header-transparent':'header-solid'}">
       <app-toolbar>
@@ -195,7 +206,7 @@ class MyApp extends LitElement {
         <a ?selected="${this._page === 'view1'}" href="/view1">Inicio</a>
         <a ?selected="${this._page === 'view2'}" href="/view2">Passeios</a>
         <a ?selected="${this._page === 'view3'}" href="/view3">Blog</a>
-        <a ?selected="${this._page === 'view4'}" href="/view4">Nós</a>
+        <a ?selected="${this._page === 'view4'}" href="/view4">Ajuda</a>
       </nav>
       </app-toolbar>
   
@@ -208,7 +219,7 @@ class MyApp extends LitElement {
         <a ?selected="${this._page === 'view1'}" href="/view1">Inicio</a>
         <a ?selected="${this._page === 'view2'}" href="/view2">Passeios</a>
         <a ?selected="${this._page === 'view3'}" href="/view3">Blog</a>
-        <a ?selected="${this._page === 'view4'}" href="/view4">Nós</a>
+        <a ?selected="${this._page === 'view4'}" href="/view4">Ajuda</a>
       </nav>
     </app-drawer>
 
@@ -219,10 +230,26 @@ class MyApp extends LitElement {
       <my-view3 class="page" ?active="${this._page === 'view3'}"></my-view3>
       <my-view4 class="page" ?active="${this._page === 'view4'}"></my-view4>
       <my-view404 class="page" ?active="${this._page === 'view404'}"></my-view404>
+
+
     </main>
 
     <footer>
-      <p>Made with &hearts; by the Polymer team.</p>
+     <div>
+        <p>A DiscoveryJeri é uma empresa</p>
+     </div>
+     <div>
+        <p>Politicas</p>
+     </div>
+      <div>
+        <p>Contacto</p>
+     </div>
+
+      <div class="footer_icons">
+        <p>copyright</p>
+        <p>iconos</p>
+     </div>
+      
     </footer>
 
     <snack-bar ?active="${this._snackbarOpened}">

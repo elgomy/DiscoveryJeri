@@ -15,6 +15,10 @@ import { PageViewElement } from './page-view-element.js';
 import { SharedStyles } from './shared-styles.js';
 
 import './vaadin-form.js';
+import './grid-section.js';
+import './fixed-button.js';
+import './photo-wall.js';
+
 
 
 class MyView1 extends PageViewElement {
@@ -30,12 +34,14 @@ class MyView1 extends PageViewElement {
 
         .front-header_container{
           background: url('../images/back1.jpeg') no-repeat;
-          background-size: 100% auto;
+
+          background-size:cover;
           height: 20vh;
           width: 100vw;
           display: grid;
           grid-template-columns: 1fr 1fr;
-          padding-top: 95px;                      
+          padding-top: 95px; 
+                             
         }
 
         .front-header_container p{          
@@ -62,6 +68,16 @@ class MyView1 extends PageViewElement {
           align-self: center;
         }
 
+        h2{
+          text-align: center;
+        }
+
+        p{
+          font-size: 1.2rem;
+          text-align: justify;
+          text-justify: inter-word;
+        }
+
         @media (min-width: 580px) and (max-width: 950px){
           .front-header_container{
             height: 40vh;
@@ -74,6 +90,7 @@ class MyView1 extends PageViewElement {
             justify-self: center;
             align-self: center;
             display:block;
+            grid-column: 1/3;
           }
 
           .front-header_container{
@@ -94,21 +111,38 @@ class MyView1 extends PageViewElement {
 
       </style>
 
+      
+      <fixed-button></fixed-button>
+
       <div class="front-header_container">
-        <vaadin-form class="header-form"></vaadin-form>
-        <p>Reserva E Sonha</p>           
+        
+        <p>Reserva E Sonha</p>  
+        <vaadin-form class="header-form"></vaadin-form>         
       </div>
+
+      <section>
+        <h2>Desenhamos seu caminho para que experimente o paraíso.</h2>
+
+        <p>Queremos te levar com o  máximo conforto e segurança e ao melhor preço possível. Visitar Jericoacoara já é
+        por si só uma experiência maravilhosa, mas nós queremos que também seja inesquecível.</p>
+       
+      
+      
       
       <div class="body-form_container">
         <vaadin-form class="body-form"></vaadin-form>
       </div>
       
+      </section>
+      
+      
       <section>
          
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac nisi orci. Maecenas sollicitudin diam in diam efficitur cursus. Morbi sollicitudin in justo tincidunt placerat. Integer tincidunt elementum nisi, eu ornare dolor lacinia eget. Fusce pulvinar massa eget odio placerat, commodo molestie ipsum tempus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse porttitor id purus eu cursus. Suspendisse arcu nulla, mattis vel hendrerit et, malesuada a elit. Nam at diam ornare, aliquet est sed, malesuada metus. Cras nec enim vel nibh tincidunt euismod ut et enim. Etiam pharetra eros in sodales iaculis. Duis sagittis urna et cursus mollis. Cras tempor rutrum est. Praesent sollicitudin ligula at laoreet placerat. Praesent tortor dui, semper in sapien non, pharetra luctus turpis.</p>
+         <grid-section></grid-section>
+
       </section>
       <section>
-        <p>Vestibulum at est ex. Aenean id ligula id nibh dictum laoreet. Etiam non semper erat. Pellentesque eu justo rhoncus diam vulputate facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam feugiat metus ex, vel fringilla massa tincidunt sit amet. Nunc facilisis bibendum tristique. Mauris commodo, dolor vitae dapibus fermentum, odio nibh viverra lorem, eu cursus diam turpis et sapien. Nunc suscipit tortor a ligula tincidunt, id hendrerit tellus sollicitudin.</p>
+        <photo-wall></photo-wall>
       </section>
     `;
   }

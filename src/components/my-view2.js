@@ -14,6 +14,9 @@ import { PageViewElement } from './page-view-element.js';
 // These are the elements needed by this element.
 import './counter-element.js';
 
+import './fixed-button.js';
+import './promotional-text.js';
+
 // These are the shared styles needed by this element.
 import { SharedStyles } from './shared-styles.js';
 
@@ -21,14 +24,10 @@ class MyView2 extends PageViewElement {
   render() {
     return html`
       ${SharedStyles}
+
+      <fixed-button></fixed-button>
       <section>
-        <h2>State container example: simple counter</h2>
-        <div class="circle">${this._clicks}</div>
-        <p>This page contains a reusable <code>&lt;counter-element&gt;</code> which is connected to the
-        store. When the element updates its counter, this page updates the values
-        in the store, and you can see the total number of clicks reflected in
-        the bubble above.</p>
-        <br><br>
+       <promotional-text></promotional-text>
       </section>
       <section>
         <p>
