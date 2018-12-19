@@ -22,6 +22,7 @@ import '@polymer/app-layout/app-scroll-effects/effects/waterfall.js';
 import '@polymer/app-layout/app-toolbar/app-toolbar.js';
 import { menuIcon } from './my-icons.js';
 import './snack-bar.js';
+import './social-icons.js';
 
 
 
@@ -152,18 +153,41 @@ class MyApp extends LitElement {
         display: block;
       }
 
-      footer {
+      .footer__container {
         padding: 24px;
         background: var(--app-drawer-background-color);
-        color: var(--app-drawer-text-color);
-        text-align: center;
+        color: var(--app-drawer-text-color);       
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: .5rem;
+        font-size: .9em;
       }
 
-      .footer_icons{
-        grid-columns: 1/6
+      .footer__company, .footer__contact{
+        grid-column: span 2;
       }
+
+      .footer__contact > img{
+        display: inline-block; 
+        vertical-align:middle;
+        width: 25px;        
+        padding-right: 5px;
+      }
+
+      .footer__copy, .footer__icons{
+        justify-self: center;
+        align-self: center;
+        grid-column: span 2;
+        padding-top: 5px;
+      }
+
+      .footer__faq > a{
+        color: var(--app-primary-color);
+        text-decoration: none;
+      }
+
+     
+    
 
       /* Wide layout: when the viewport width is bigger than 460px, layout
       changes to a wide layout. */
@@ -189,6 +213,29 @@ class MyApp extends LitElement {
         [main-title] {
           padding-right: 0px;
         }
+
+        .footer__container{
+          font-size: 1em;
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .footer__company{
+        grid-column: 1;
+      }
+
+      .footer__contact{
+        grid-column: 2;
+      }
+
+      .footer__faq{
+        grid-column: 3;
+      }
+
+      .footer__copy, .footer__icons{
+        justify-self: center;
+        align-self: center;
+        grid-column: span 3;
+      }
       }
     </style>
 
@@ -235,21 +282,42 @@ class MyApp extends LitElement {
     </main>
 
     <footer>
-     <div>
-        <p>A DiscoveryJeri é uma empresa</p>
-     </div>
-     <div>
-        <p>Politicas</p>
-     </div>
-      <div>
-        <p>Contacto</p>
-     </div>
+      <div class="footer__container">
+        <div class="footer__company">
+          <h3>Sobre Nós</h3>
+          <p>A DiscoveryJeri é uma agência de turismo receptivo, que trabalha a excelência na oferta de traslados e passeios na vila de Jericoacoara.</p>
+        </div>
+        
+        <div class="footer__contact">
+          <h3>Contato</h3>
+          <img src="../images/envelope.svg" alt="email" />contatojericoacoara@gmail.com
+          <p>Av Principal, S/N
+          Preá - Cruz - Ceará </br>
+          CEP 62595-000 </br>
+          (88) 99781-7010 Tim </p>
+        </div>
 
-      <div class="footer_icons">
-        <p>copyright</p>
-        <p>iconos</p>
-     </div>
+        <div class="footer__faq">
+          <h3>Menu</h3>
+          <a href="">Passeios</a></br>
+          <a href="">Blog</a></br>
+          <a href="">Ajuda</a></br>
+          <a href="">Politicas</a>   
+        </div>
+
+        <div class="footer__icons">
+          <social-icons></social-icons>
+        </div>     
+        
+        <div class="footer__copy">
+          <p>© 2018 Copyright Vigior</p>    
+        </div>
+
       
+      </div>
+
+     
+
     </footer>
 
     <snack-bar ?active="${this._snackbarOpened}">

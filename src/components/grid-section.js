@@ -9,7 +9,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 */
 
 import { LitElement, html } from '@polymer/lit-element';
-
+import './prices-grid.js';
 
 
 class GridSection extends LitElement {
@@ -21,8 +21,15 @@ class GridSection extends LitElement {
 		h2{			
 			font-size: calc(30px + (116 - 84) * ((100vw - 400px) / (1600 - 400)));
 			text-align: center;
-			padding: 5rem;
+			padding: .8rem;
 			color: #424242;
+		}
+
+		.item5 > h2{
+			
+			margin: 0;
+			padding-top: 2rem;
+			padding-bottom: 0;
 		}
 
 		.item1:hover .veil{
@@ -112,7 +119,7 @@ class GridSection extends LitElement {
 				background: #e0e0e0;
 			}
 
-			
+		
 		}
 										
 		
@@ -155,6 +162,8 @@ class GridSection extends LitElement {
 		</div>
 		<div class="item item5">
 			<h2><span>NOSSOS PREÇOS</span></h2>
+			<prices-grid></prices-grid>
+
 		</div>
 
        
