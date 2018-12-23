@@ -132,7 +132,7 @@ class VaadinForm extends LitElement {
 	        	error-message="Por favor selecione os passageiros">
 		  			<template>
 		    			<vaadin-list-box>
-		      				<vaadin-item>Adultos <counter-element></counter-element></vaadin-item>
+		      				<vaadin-item>Adultos <counter-element @counter-incremented="${this.counter}"></counter-element></vaadin-item>
 		      				<vaadin-item>Menores <counter-element></counter-element></vaadin-item>
 		    			</vaadin-list-box>
 		  			</template>
@@ -170,6 +170,10 @@ class VaadinForm extends LitElement {
     
   }
 
+  counter(e){
+  	console.log(e.detail)
+  }
+
   enableReturn(){
   	let checkbox = this.shadowRoot.querySelector('vaadin-checkbox');
   	var returnPicker = this.shadowRoot.querySelector('#return-date');
@@ -193,7 +197,7 @@ class VaadinForm extends LitElement {
 		];
   	formLayout2.responsiveSteps = [
   			{minWidth: 0, columns: 2},
-  		    {minWidth: '45em', columns: 6} 			
+  		    {minWidth: '45em', columns: 5} 			
 		];
 
 

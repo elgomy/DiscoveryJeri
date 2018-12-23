@@ -59,6 +59,10 @@ class MyApp extends LitElement {
         width: 100%;
         text-align: center;    
         color: var(--app-light-text-color);
+        --app-header-background-rear-layer: {
+            /* The header is blue when condensed */
+          background-color: blue;
+  };
         
       }
 
@@ -159,7 +163,7 @@ class MyApp extends LitElement {
         color: var(--app-drawer-text-color);       
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-column-gap: .5rem;
+        
         font-size: .9em;
       }
 
@@ -217,6 +221,7 @@ class MyApp extends LitElement {
         .footer__container{
           font-size: 1em;
           grid-template-columns: 1fr 1fr 1fr;
+          grid-column-gap: 1.2rem;
         }
 
         .footer__company{
@@ -302,7 +307,7 @@ class MyApp extends LitElement {
           <a href="">Passeios</a></br>
           <a href="">Blog</a></br>
           <a href="">Ajuda</a></br>
-          <a href="">Politicas</a>   
+          <a href="">Políticas</a>   
         </div>
 
         <div class="footer__icons">
@@ -341,7 +346,25 @@ class MyApp extends LitElement {
     // To force all event listeners for gestures to be passive.
     // See https://www.polymer-project.org/3.0/docs/devguide/settings#setting-passive-touch-gestures
     setPassiveTouchGestures(true);
+
+    // Set header class 'header-solid' when scroll down only for view1
+    // when scroll is on top of the page, set to 'header-transparent'
+    window.onscroll = ()=>{
+      var scroll = window.scrollY
+      var header = this.shadowRoot.querySelector('app-header');
+      if(this._page === 'view1'){
+        
+          if (header.reveals == true && scroll != 0){     
+              header.className = 'header-solid';
+          }
+          else {
+              header.className = 'header-transparent'
+          }
+      }
+    
+    }
   }
+
 
   firstUpdated() {
     installRouter((location) => this._locationChanged(location));

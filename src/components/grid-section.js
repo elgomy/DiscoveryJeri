@@ -9,14 +9,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 */
 
 import { LitElement, html } from '@polymer/lit-element';
-import './prices-grid.js';
+import './cards-section.js';
 
 
 class GridSection extends LitElement {
   render() {
     return html`
       
-      <style>		
+      <style>	
+
+      :host{
+          
+          paper-card{
+            --app-header-text-color: blue
+          }
+          
+          
+        }	
 
 		h2{			
 			font-size: calc(30px + (116 - 84) * ((100vw - 400px) / (1600 - 400)));
@@ -25,12 +34,7 @@ class GridSection extends LitElement {
 			color: #424242;
 		}
 
-		.item5 > h2{
-			
-			margin: 0;
-			padding-top: 2rem;
-			padding-bottom: 0;
-		}
+		
 
 		.item1:hover .veil{
 			opacity: 1;		
@@ -43,14 +47,14 @@ class GridSection extends LitElement {
 
 		.item1{
 			background: url('../images/grid5.jpg') no-repeat;
-			background-size:cover;
-			height: 25rem;
+			background-size: cover;
+			height: 45vh;
 		}
 
 		.item4{
 			background: url('../images/grid2.jpg') no-repeat;
-			background-size:cover;
-			height: 25rem;
+			background-size: cover;
+			height: 45vh;
 		}
 
 		.veil{
@@ -74,8 +78,15 @@ class GridSection extends LitElement {
 
 		}
 
+		.item1 .text, .item4 .text{
+			font-size: .8em;
+			
+		}
+
+		
+
 		.text{			
-			margin-top: 3rem;
+			margin-top: 1rem;
 		}
 
 		
@@ -90,6 +101,18 @@ class GridSection extends LitElement {
 			h2{
 			 	font-size: calc(30px + (116 - 94) * ((100vw - 400px) / (1600 - 300)));
 			}
+
+			.item1{
+			background: url('../images/grid5.jpg') no-repeat;
+			background-size: cover;
+			height: 60vh;
+		}
+
+		.item4{
+			background: url('../images/grid2.jpg') no-repeat;
+			background-size: cover;
+			height: 60vh;
+		}
 
 			.item1{
 				grid-column: 1/3;
@@ -119,6 +142,10 @@ class GridSection extends LitElement {
 				background: #e0e0e0;
 			}
 
+			.item1 .text, .item4 .text{
+				font-size: .9em;
+			
+			}
 		
 		}
 										
@@ -129,17 +156,18 @@ class GridSection extends LitElement {
 
 	 <div class="item item2">
 			<h2>TRASLADOS</h2>
-			<p>Traslado Fortaleza-Jeri desde R$ 100*</p>
+			<p>Traslado Fortaleza-Jeri desde <span style="font-weight:bold;">R$ 100!!*</span></p>
 		</div>
 
 		<div class="item item1">
 			<a href="#" class="veil">	
-				<div class="text">			
-					<p>Van até 18 passageiros (wifi e TV). <span>*Sujeito a lotaçao</span></p>
-					<p>Nossa frota também inclui SW4 e Hilux<p>
-					<p>Duraçao média traslado Fortaleza-Jeri: 4:30h</p>
-					<p>Traslados desde os Aeroportos de Fortaleza y Jeri, Preá, Fortaleza y Jeri</p>
-					<p>Avaliamos traslados personalizados, consulte-nos</p>
+				<div class="text">
+					<p>Também oferecemos traslados para grandes grupos.</p>			
+					<p>Van até 18 passageiros (wifi e TV). <span style="font-size:.77em;">*Sujeito a lotaçao</span></p>
+					<p>Nossa frota também inclui SW4 e Hilux.<p>
+					<p>Duraçao média traslado Fortaleza-Jeri: 4:30h.</p>
+					<p>Traslados desde os Aeroportos de Fortaleza y Jeri, e desde o Preá, cidade de Fortaleza y vila de Jericoacoara.</p>
+					<p>Avaliamos traslados personalizados, consulte-nos.</p>
 				</div>
 			</a>
 		</div>
@@ -152,17 +180,18 @@ class GridSection extends LitElement {
 		</div>
 
 		<div class="item item4">
-			<a href="#" class="veil">
-				
+			<a href="#" class="veil">				
 				<div class="text">			
+					<p>Oferecemos todo tipo de emoçoes e passeios para todo tipo de perfis.</p>
 					<p>Passeios de Jardineira, Buggy, Quadriciclo, SW4, Hilux</p>
+					<p>Avaliamos passeios personalizados, consulte-nos.</p>
 					<p>Clique e confira nossos passeios</p>
 				</div>
 			</a>
 		</div>
 		<div class="item item5">
 			<h2><span>NOSSOS PREÇOS</span></h2>
-			<prices-grid></prices-grid>
+			<cards-section></cards-section>
 
 		</div>
 

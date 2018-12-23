@@ -1,4 +1,4 @@
-/**
+ /**
 @license
 Copyright (c) 2018 The Polymer Project Authors. All rights reserved.
 This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
@@ -13,9 +13,9 @@ import { LitElement, html } from '@polymer/lit-element';
 import '@polymer/paper-card/paper-card.js';
 
 
-import '@vaadin/vaadin-button/vaadin-button.js';
 
-import './poly-card.js';
+
+import './price-card.js';
 
 
 
@@ -26,6 +26,24 @@ class CardsSection extends LitElement {
     <style>
 		 
 
+     .cards_container{
+        display: grid;
+        grid-row-gap: 1rem;
+        grid-template-columns: 1fr;
+    }
+
+
+
+
+    @media (min-width: 650px) {
+
+    .cards_container{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-column-gap: 1rem;
+    }
+
+  }
 	
 
     </style>
@@ -33,7 +51,21 @@ class CardsSection extends LitElement {
 	<div class="cards_container">
 
 
-	    <poly-card></poly-card>
+	    <price-card header="Traslados"
+        .image=${'../images/car.svg'} 
+        .item=${['Van (18p)', 'SW4 (4p)',]} 
+        .price=${['R$ 100 pp', 'xxx']}>
+      </price-card>
+
+      <price-card header="Passeio Leste" 
+        .item=${['Jardineira (10p)', 'Hilux (6p)', 'Buggy (4p)', 'SW4 (4p)', 'Quadriciclo (1p)']} 
+        .price=${['R$ 600', 'R$ 450', 'R$ 400', 'R$ 500', 'R$ 400']}>
+      </price-card>
+
+      <price-card header="Passeio Oeste" 
+        .item=${['Jardineira (10p)', 'Buggy (4p)', 'Quadriciclo (1p)']}  
+        .price=${['R$ 750', 'R$ 500', 'R$ 500']}>
+      </price-card>
 
 
     </div>
@@ -42,9 +74,15 @@ class CardsSection extends LitElement {
     `;
   }
 
+  constructor() {
+    super();
+    
+    this.array = ['an','array','of','test','data'];
+  }
+
   static get properties() {
     return {
-     
+      array: Array,
     }
   }
 
