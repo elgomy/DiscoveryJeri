@@ -21,21 +21,6 @@ class PriceCard extends LitElement {
       
       	<style>
 
-        :host{
-          
-          paper-card{
-            --app-header-text-color: blue
-          }
-          
-          
-        }
-        
-
-        paper-card{
-          --paper-card-header-text:{
-             color: blue;
-          }
-        }
 
       	 .prices__container{
       	 	display: grid;
@@ -45,7 +30,7 @@ class PriceCard extends LitElement {
 
       	 .prices__concept, .prices__price{
       	 	
-  			    border: 1px solid;
+  			    
             height: 100%;
       	 }
 
@@ -59,11 +44,11 @@ class PriceCard extends LitElement {
 
          paper-card{
            width: 100%;
-           height: 100%;
+           
          }
         
         .card-content{
-          border: 1px solid red;
+          
           
         }
 

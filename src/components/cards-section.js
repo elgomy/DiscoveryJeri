@@ -63,7 +63,7 @@ class CardsSection extends LitElement {
       </price-card>
 
       <price-card header="Passeio Oeste" 
-        .item=${['Jardineira (10p)', 'Buggy (4p)', 'Quadriciclo (1p)']}  
+        .item=${['Jardineira (10p)', 'Hilux (6p)', 'Buggy (4p)', 'SW4 (4p)', 'Quadriciclo (1p)']}  
         .price=${['R$ 750', 'R$ 500', 'R$ 500']}>
       </price-card>
 

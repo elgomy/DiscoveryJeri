@@ -20,8 +20,11 @@ import '@vaadin/vaadin-select/vaadin-select.js';
 import '@vaadin/vaadin-list-box/vaadin-list-box.js';
 import '@vaadin/vaadin-button/vaadin-button.js';
 import '@vaadin/vaadin-time-picker/vaadin-time-picker.js';
+import '@polymer/iron-dropdown/iron-dropdown.js';
+
 
 import './counter-element.js';
+
 
 // This is a reusable element. It is not connected to the store. You can
 // imagine that it could just as well be a third-party element that you
@@ -64,6 +67,18 @@ class VaadinForm extends LitElement {
 		vaadin-checkbox{
 			font-size: .85em;
 		}
+
+
+
+		[slot="dropdown-content"] {
+        background-color: white;
+        opacity: .9;
+        line-height: 10px;
+        border-radius: 3px;
+        box-shadow: 0px 2px 6px #ccc;
+        width: 150px;
+        padding: 8px 15px;
+      }
 
 		@media (min-width: 950px) {
 		  form{
@@ -125,18 +140,33 @@ class VaadinForm extends LitElement {
 			  <vaadin-form-layout id="form2">
 				
 			
-			  <vaadin-select 			  	
-			  	placeholder="Passageiros" 
-			  	value=""
-			  	required         
-	        	error-message="Por favor selecione os passageiros">
-		  			<template>
-		    			<vaadin-list-box>
-		      				<vaadin-item>Adultos <counter-element @counter-incremented="${this.counter}"></counter-element></vaadin-item>
-		      				<vaadin-item>Menores <counter-element></counter-element></vaadin-item>
-		    			</vaadin-list-box>
-		  			</template>
-			  </vaadin-select>
+			 <vaadin-text-field 
+			 	placeholder="Passageiros" 
+			 	id="passenger-field"
+			 	@click="${this.openDrop}">
+			</vaadin-text-field>
+
+			
+			<iron-dropdown id="dropdown" no-overlap>
+        		<div class="drop-content" slot="dropdown-content">
+					<div>
+					 Adultos
+					 <counter-element 
+						 @counter-incremented="${this.updateField}"
+						 @counter-decremented="${this.updateField}">
+					</counter-element>
+					</div>
+					<div>
+					 Menores
+					 <counter-element 
+						 @counter-incremented="${this.updateField}"
+						 @counter-decremented="${this.updateField}">
+					</counter-element>
+					</div>
+        		</div>
+        		</div>
+      		</iron-dropdown>
+      		
 
 			  
 			  <vaadin-date-picker class="picker" placeholder="Ida"></vaadin-date-picker>	 
@@ -160,19 +190,37 @@ class VaadinForm extends LitElement {
 
   static get properties() { return {
 
- 	
+ 	totalValue: { type: Number }
 
   }};
 
   constructor() {
     super();
-    
-    
+     this.totalValue = 0;
   }
 
-  counter(e){
-  	console.log(e.detail)
+  
+
+  updateField(e){
+  	console.log(e.type);
+  	let passengerField = this.shadowRoot.querySelector('#passenger-field');
+  	if(e.type == "counter-incremented"){
+  		console.log('test');
+  		this.totalValue++;
+  		passengerField.value = this.totalValue;
+  	}else if(this.totalValue != 0){
+
+  		this.totalValue--;
+  		passengerField.value = this.totalValue;
+  	}
   }
+
+  openDrop(){
+  	let drop = this.shadowRoot.querySelector('iron-dropdown');
+  	drop.open()
+  }
+
+ 
 
   enableReturn(){
   	let checkbox = this.shadowRoot.querySelector('vaadin-checkbox');

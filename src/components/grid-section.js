@@ -46,7 +46,7 @@ class GridSection extends LitElement {
 		}
 
 		.item1{
-			background: url('../images/grid5.jpg') no-repeat;
+			background: url('../images/grid6.jpg') no-repeat;
 			background-size: cover;
 			height: 45vh;
 		}
@@ -103,7 +103,7 @@ class GridSection extends LitElement {
 			}
 
 			.item1{
-			background: url('../images/grid5.jpg') no-repeat;
+			background: url('../images/grid6.jpg') no-repeat;
 			background-size: cover;
 			height: 60vh;
 		}

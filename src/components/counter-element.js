@@ -24,7 +24,14 @@ class CounterElement extends LitElement {
     return html`
       ${ButtonSharedStyles}
       <style>
-        span { width: 20px; display: inline-block; text-align: center; font-weight: bold;}
+        span { 
+          width: 20px; 
+          display: inline-block; 
+          text-align: center; 
+          font-weight: bold;
+        }
+
+       
       </style>
       <div>
         <p>
@@ -39,28 +46,28 @@ class CounterElement extends LitElement {
   }
 
   static get properties() { return {
-    /* The total number of clicks you've done. */
-    clicks: { type: Number },
+  
     /* The current value of the counter. */
     value: { type: Number }
   }};
 
   constructor() {
     super();
-    this.clicks = 0;
+    
     this.value = 0;
   }
 
   _onIncrement() {
     this.value++;
-    this.clicks++;
-    this.dispatchEvent(new CustomEvent('counter-incremented', {bubbles:true, composed:true, detail:'hola'}));
+    this.dispatchEvent(new CustomEvent('counter-incremented', {bubbles:true, composed:true, detail:this.value}));
   }
 
   _onDecrement() {
-    this.value--;
-    this.clicks++;
-    this.dispatchEvent(new CustomEvent('counter-decremented'));
+    if (this.value != 0){
+      this.value--;
+      this.dispatchEvent(new CustomEvent('counter-decremented', {bubbles:true, composed:true, detail:this.value}));
+    }
+    
   }
 }
 

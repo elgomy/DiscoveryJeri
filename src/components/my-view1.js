@@ -88,9 +88,10 @@ class MyView1 extends PageViewElement {
 
           .header-form{         
             justify-self: center;
-            align-self: center;
+            align-self: start;
             display:block;
             grid-column: 1/3;
+
           }
 
           .front-header_container{
@@ -114,8 +115,7 @@ class MyView1 extends PageViewElement {
       
       <fixed-button></fixed-button>
 
-      <div class="front-header_container">
-        
+      <div class="front-header_container">    
         <p>Reserva E Sonha</p>  
         <vaadin-form class="header-form"></vaadin-form>         
       </div>

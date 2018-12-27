@@ -59,10 +59,8 @@ class MyApp extends LitElement {
         width: 100%;
         text-align: center;    
         color: var(--app-light-text-color);
-        --app-header-background-rear-layer: {
-            /* The header is blue when condensed */
-          background-color: blue;
-  };
+        z-index: 3;
+       
         
       }
 
@@ -353,7 +351,7 @@ class MyApp extends LitElement {
       var scroll = window.scrollY
       var header = this.shadowRoot.querySelector('app-header');
       if(this._page === 'view1'){
-        
+
           if (header.reveals == true && scroll != 0){     
               header.className = 'header-solid';
           }

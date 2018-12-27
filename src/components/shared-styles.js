@@ -19,7 +19,7 @@ export const SharedStyles = html`
 
   section {
     padding: 24px;
-    background: var(--app-section-odd-color);
+    
   }
 
   section > * {
@@ -29,7 +29,7 @@ export const SharedStyles = html`
   }
 
   section:nth-of-type(even) {
-    background: var(--app-section-even-color);
+    
   }
 
   h2 {

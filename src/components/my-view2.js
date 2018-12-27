@@ -11,56 +11,53 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 import { html } from '@polymer/lit-element';
 import { PageViewElement } from './page-view-element.js';
 
-// These are the elements needed by this element.
-import './counter-element.js';
+import { SharedStyles } from './shared-styles.js';
 
 import './fixed-button.js';
 import './promotional-text.js';
+import './grid-passeios1.js';
 
-// These are the shared styles needed by this element.
-import { SharedStyles } from './shared-styles.js';
+
 
 class MyView2 extends PageViewElement {
   render() {
     return html`
       ${SharedStyles}
 
+      <style>
+
+      </style>
+
       <fixed-button></fixed-button>
+
       <section>
-       <promotional-text></promotional-text>
+        <p>Passeios que sao momentos, momentos que sao experiências, experiências que sao lembranças.
+         Lembranças que queremos que sejam únicas. Por isso escolhe descobrir, escolhe DiscoveryJeri.</p> 
+
+                    
+      </section>
+
+      <section>
+        <grid-passeios1></grid-passeios1>
       </section>
       <section>
-        <p>
-          <counter-element value="${this._value}" clicks="${this._clicks}"
-              @counter-incremented="${this._increment}"
-              @counter-decremented="${this._decrement}">
-          </counter-element>
-        </p>
+        
+
+        
       </section>
     `;
   }
 
   static get properties() { return {
-    // This is the data from the store.
-    _clicks: { type: Number },
-    _value: { type: Number },
+   
   }}
 
   constructor() {
     super();
-    this._clicks = 0;
-    this._value = 0;
+   
   }
 
-  _increment() {
-    this._clicks++;
-    this._value++;
-  }
 
-  _decrement() {
-    this._clicks++;
-    this._value--;
-  }
 }
 
 window.customElements.define('my-view2', MyView2);
