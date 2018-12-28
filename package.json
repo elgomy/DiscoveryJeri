@@ -27,6 +27,7 @@
     "@polymer/paper-button": "^3.0.1",
     "@polymer/paper-card": "^3.0.1",
     "@polymer/paper-fab": "^3.0.1",
+    "@polymer/paper-spinner": "^3.0.1",
     "@polymer/polymer": "^3.0.0",
     "@vaadin/vaadin-checkbox": "^2.2.4",
     "@vaadin/vaadin-date-picker": "^3.3.1",

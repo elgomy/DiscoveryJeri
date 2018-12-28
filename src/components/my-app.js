@@ -23,6 +23,7 @@ import '@polymer/app-layout/app-toolbar/app-toolbar.js';
 import { menuIcon } from './my-icons.js';
 import './snack-bar.js';
 import './social-icons.js';
+import '@polymer/paper-spinner/paper-spinner.js';
 
 
 
@@ -155,6 +156,12 @@ class MyApp extends LitElement {
         display: block;
       }
 
+     
+
+      .footer-display{
+         visibility: visible;
+      }
+
       .footer__container {
         padding: 24px;
         background: var(--app-drawer-background-color);
@@ -187,8 +194,6 @@ class MyApp extends LitElement {
         color: var(--app-primary-color);
         text-decoration: none;
       }
-
-     
     
 
       /* Wide layout: when the viewport width is bigger than 460px, layout
@@ -242,7 +247,7 @@ class MyApp extends LitElement {
       }
     </style>
 
-    
+   
 
     <!-- Header -->
     <app-header condenses reveals effects="waterfall" class="${this._page === 'view1'?'header-transparent':'header-solid'}">
@@ -274,17 +279,19 @@ class MyApp extends LitElement {
     </app-drawer>
 
     <!-- Main content -->
+
     <main role="main" class="${this._page === 'view1'?'main-content_frontpage':'main-content'}">
       <my-view1 class="page" ?active="${this._page === 'view1'}"></my-view1>
       <my-view2 class="page" ?active="${this._page === 'view2'}"></my-view2>
       <my-view3 class="page" ?active="${this._page === 'view3'}"></my-view3>
       <my-view4 class="page" ?active="${this._page === 'view4'}"></my-view4>
       <my-view404 class="page" ?active="${this._page === 'view404'}"></my-view404>
+      <paper-spinner active></paper-spinner>
 
 
     </main>
 
-    <footer>
+    <footer class="footer">
       <div class="footer__container">
         <div class="footer__company">
           <h3>Sobre Nós</h3>
@@ -323,8 +330,10 @@ class MyApp extends LitElement {
 
     </footer>
 
+
+
     <snack-bar ?active="${this._snackbarOpened}">
-        You are now ${this._offline ? 'offline' : 'online'}.</snack-bar>
+        Você está ${this._offline ? 'offline' : 'online'}.</snack-bar>
     `;
   }
 
@@ -424,10 +433,23 @@ class MyApp extends LitElement {
         import('../components/my-view1.js').then((module) => {
           // Put code in here that you want to run every time when
           // navigating to view1 after my-view1.js is loaded.
+          console.log('cargado');
+
+          var footer = this.shadowRoot.querySelector('footer');
+        //  footer.className = "footer-display"
+
         });
         break;
       case 'view2':
-        import('../components/my-view2.js');
+        import('../components/my-view2.js').then((module) => {
+          // Put code in here that you want to run every time when
+          // navigating to view1 after my-view1.js is loaded.
+          console.log('cargado');
+
+          var footer = this.shadowRoot.querySelector('footer');
+        //  footer.className = "footer-display"
+
+        });;
         break;
       case 'view3':
         import('../components/my-view3.js');

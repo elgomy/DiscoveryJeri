@@ -36,7 +36,7 @@ class MyView1 extends PageViewElement {
           background: url('../images/back1.jpeg') no-repeat;
 
           background-size:cover;
-          height: 20vh;
+          height: 30vh;
           width: 100vw;
           display: grid;
           grid-template-columns: 1fr 1fr;
@@ -80,7 +80,7 @@ class MyView1 extends PageViewElement {
 
         @media (min-width: 580px) and (max-width: 950px){
           .front-header_container{
-            height: 40vh;
+            height: 55vh;
           }
         }
 

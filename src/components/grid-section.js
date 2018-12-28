@@ -16,16 +16,7 @@ class GridSection extends LitElement {
   render() {
     return html`
       
-      <style>	
-
-      :host{
-          
-          paper-card{
-            --app-header-text-color: blue
-          }
-          
-          
-        }	
+      <style>		
 
 		h2{			
 			font-size: calc(30px + (116 - 84) * ((100vw - 400px) / (1600 - 400)));
@@ -33,9 +24,8 @@ class GridSection extends LitElement {
 			padding: .8rem;
 			color: #424242;
 		}
-
+	
 		
-
 		.item1:hover .veil{
 			opacity: 1;		
 		}
@@ -43,18 +33,6 @@ class GridSection extends LitElement {
 		.item4:hover .veil{
 			opacity: 1;
 			
-		}
-
-		.item1{
-			background: url('../images/grid6.jpg') no-repeat;
-			background-size: cover;
-			height: 45vh;
-		}
-
-		.item4{
-			background: url('../images/grid2.jpg') no-repeat;
-			background-size: cover;
-			height: 45vh;
 		}
 
 		.veil{
@@ -68,6 +46,19 @@ class GridSection extends LitElement {
 			text-decoration:none;
 		}
 
+		.item1{
+			background: url('../images/grid6-small.jpg') no-repeat;
+			background-size: cover;
+			height: 37vh;
+			width: 100%;
+		}
+
+		.item4{
+			background: url('../images/grid2.jpg') no-repeat;
+			background-size: cover;
+			height: 37vh;
+		}
+
 		p{
 			margin-left: 1em;
 			color: #424242;
@@ -75,22 +66,41 @@ class GridSection extends LitElement {
 
 		.item2 p, .item3 p{
 			text-align: center;
-
 		}
 
 		.item1 .text, .item4 .text{
-			font-size: .8em;
-			
+			font-size: .8em;		
 		}
-
-		
 
 		.text{			
 			margin-top: 1rem;
 		}
 
+		@media (min-width: 450px) and (max-width: 630px){
+
+          	.item1{
+				height: 60vh;
+			}
+
+		  	.item4{
+				height: 60vh;
+			}
+          
+        }
+
+        @media (min-width: 630px) and (max-width: 830px){
+          
+          	.item1{
+				height: 75vh;
+		  	}
+
+		  	.item4{
+				height: 75vh;
+		  	}
+          
+        }
 		
-		@media (min-width: 900px) {
+		@media (min-width: 830px) {
 
 		  	.container{
 				display: grid;
@@ -103,16 +113,16 @@ class GridSection extends LitElement {
 			}
 
 			.item1{
-			background: url('../images/grid6.jpg') no-repeat;
-			background-size: cover;
-			height: 60vh;
-		}
+				background: url('../images/grid6-large.jpg') no-repeat;
+				background-size: cover;
+				height: 60vh;
+			}
 
-		.item4{
-			background: url('../images/grid2.jpg') no-repeat;
-			background-size: cover;
-			height: 60vh;
-		}
+			.item4{
+				background: url('../images/grid2.jpg') no-repeat;
+				background-size: cover;
+				height: 60vh;
+			}
 
 			.item1{
 				grid-column: 1/3;
@@ -143,8 +153,7 @@ class GridSection extends LitElement {
 			}
 
 			.item1 .text, .item4 .text{
-				font-size: .9em;
-			
+				font-size: .9em;		
 			}
 		
 		}
@@ -160,7 +169,8 @@ class GridSection extends LitElement {
 		</div>
 
 		<div class="item item1">
-			<a href="#" class="veil">	
+			<a href="#" class="veil">
+
 				<div class="text">
 					<p>Também oferecemos traslados para grandes grupos.</p>			
 					<p>Van até 18 passageiros (wifi e TV). <span style="font-size:.77em;">*Sujeito a lotaçao</span></p>
