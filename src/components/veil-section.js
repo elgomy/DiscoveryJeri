@@ -55,7 +55,7 @@ class VeilSection extends LitElement {
 		.item1{
 			background: url('../images/grid6-small.jpg') no-repeat;
 			background-size: cover;
-			background-position: center center;
+			background-position: right center;
 			
 			
 		}

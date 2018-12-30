@@ -147,7 +147,7 @@ class VaadinForm extends LitElement {
 			</vaadin-text-field>
 
 			
-			<iron-dropdown id="dropdown" no-overlap>
+			<iron-dropdown id="dropdown" vertical-offset="45">
         		<div class="drop-content" slot="dropdown-content">
 					<div>
 					 Adultos
@@ -166,6 +166,7 @@ class VaadinForm extends LitElement {
         		</div>
         		</div>
       		</iron-dropdown>
+
       		
 
 			  
