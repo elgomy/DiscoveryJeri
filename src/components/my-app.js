@@ -60,7 +60,7 @@ class MyApp extends LitElement {
         width: 100%;
         text-align: center;    
         color: var(--app-light-text-color);
-        z-index: 3;
+        z-index: 1;
        
         
       }
@@ -74,6 +74,10 @@ class MyApp extends LitElement {
         background: -webkit-linear-gradient(left, #49a5bf 0%, #6bb1bc 30%, #93cede 98%, #93cede 98%, #93cede 100%, #75bdd1 100%);
         background: -o-linear-gradient(left, #49a5bf 0%, #6bb1bc 30%, #93cede 98%, #93cede 98%, #93cede 100%, #75bdd1 100%);
         background: linear-gradient(to right, #49a5bf 0%, #6bb1bc 30%, #93cede 98%, #93cede 98%, #93cede 100%, #75bdd1 100%); /* FF3.6-15 */ /* Chrome10-25,Safari5.1-6 */ /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      }
+
+      app-drawer{
+        z-index: 2;
       }
 
       

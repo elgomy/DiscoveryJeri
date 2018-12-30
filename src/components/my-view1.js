@@ -15,9 +15,11 @@ import { PageViewElement } from './page-view-element.js';
 import { SharedStyles } from './shared-styles.js';
 
 import './vaadin-form.js';
-import './grid-section.js';
+import './veil-section.js';
 import './fixed-button.js';
 import './photo-wall.js';
+import './form-passeios.js';
+import '@vaadin/vaadin-dialog/vaadin-dialog.js';
 
 
 
@@ -78,6 +80,8 @@ class MyView1 extends PageViewElement {
           text-justify: inter-word;
         }
 
+       
+
         @media (min-width: 580px) and (max-width: 950px){
           .front-header_container{
             height: 55vh;
@@ -124,27 +128,41 @@ class MyView1 extends PageViewElement {
         <h2>Desenhamos seu caminho para que experimente o paraíso.</h2>
 
         <p>Queremos te levar com o  máximo conforto e segurança e ao melhor preço possível. Visitar Jericoacoara já é
-        por si só uma experiência maravilhosa, mas nós queremos que também seja inesquecível.</p>
-       
-      
-      
-      
-      <div class="body-form_container">
-        <vaadin-form class="body-form"></vaadin-form>
-      </div>
-      
+        por si só uma experiência maravilhosa, mas nós queremos que também seja inesquecível.</p>           
+        <div class="body-form_container">
+          <vaadin-form class="body-form"></vaadin-form>
+        </div>  
       </section>
-      
-      
-      <section>
-         
-         <grid-section></grid-section>
+        
+      <section>        
+         <veil-section></veil-section>
+      </section>
 
-      </section>
       <section>
-        <photo-wall></photo-wall>
+        <p>Você deseja ir a Lençois do Maranhao, ou seu sonho é conhecer Delta do Parnaíba ou Barragrande? 
+        Seja qual for seu desejo consulte-nos. Também atendemos solicitaçoes de passeios customizados. Entre em contato
+        via e-mail, whatsapp o telefone.</p>
+       
       </section>
+
+        <vaadin-dialog>
+          <template>
+            <form-passeios></form-passeios>
+          </template>
+        </vaadin-dialog>
+          
+     
     `;
+  }
+
+  constructor() {
+    super();
+    this.addEventListener('request', (e) => this.openDialog(e));  
+  }
+
+  openDialog(e){
+    let dialog = this.shadowRoot.querySelector('vaadin-dialog');
+    dialog.opened = true;
   }
 }
 

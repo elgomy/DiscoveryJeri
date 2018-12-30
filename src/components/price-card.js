@@ -87,7 +87,7 @@ class PriceCard extends LitElement {
     			</div>
   			</div>
   			<div class="card-actions">
-    			<paper-button>Solicita!</paper-button>
+    			<paper-button @click="${this.requestButton}">Solicita!</paper-button>
     			<paper-button>Detalhes</paper-button>
   			</div>
 		</paper-card>
@@ -109,6 +109,10 @@ class PriceCard extends LitElement {
     image: String,
  		
     }
+  }
+
+  requestButton(){
+    this.dispatchEvent(new CustomEvent('request',{bubbles: true, composed: true, detail:'request'}));
   }
 }
 
