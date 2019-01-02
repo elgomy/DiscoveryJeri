@@ -29,7 +29,7 @@ class FixedButton extends LitElement {
 		}
       </style>
 	  
-	  <paper-fab alt="whatsapp" src="images/whatsapp.svg"></paper-fab>
+	  <a href="https://api.whatsapp.com/send?phone=5588997817010"><paper-fab alt="whatsapp" src="images/whatsapp.svg"></paper-fab></a>
 
 	  
     `;

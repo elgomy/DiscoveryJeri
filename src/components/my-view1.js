@@ -8,7 +8,7 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 */
 
-import { html } from '@polymer/lit-element';
+
 import { PageViewElement } from './page-view-element.js';
 
 // These are the shared styles needed by this element.
@@ -20,6 +20,8 @@ import './fixed-button.js';
 import './photo-wall.js';
 import './form-passeios.js';
 import '@vaadin/vaadin-dialog/vaadin-dialog.js';
+import {LocalizedLitElement, html, ftl} from '@dabolus/localized-lit-element';
+
 
 
 
@@ -119,16 +121,15 @@ class MyView1 extends PageViewElement {
       
       <fixed-button></fixed-button>
 
-      <div class="front-header_container">    
-        <p>Reserva E Sonha</p>  
+      <div class="front-header_container"> 
+        <p>${this.localize('header-title')}</p>        
         <vaadin-form class="header-form"></vaadin-form>         
       </div>
 
       <section>
-        <h2>Desenhamos seu caminho para que experimente o paraíso.</h2>
-
-        <p>Queremos te levar com o  máximo conforto e segurança e ao melhor preço possível. Visitar Jericoacoara já é
-        por si só uma experiência maravilhosa, mas nós queremos que também seja inesquecível.</p>           
+        <h2>${this.localize('body-title')}</h2>
+        <p>${this.localize('body-text')}</p>  
+               
         <div class="body-form_container">
           <vaadin-form class="body-form"></vaadin-form>
         </div>  
@@ -139,9 +140,7 @@ class MyView1 extends PageViewElement {
       </section>
 
       <section>
-        <p>Você deseja ir a Lençois do Maranhao, ou seu sonho é conhecer Delta do Parnaíba ou Barragrande? 
-        Seja qual for seu desejo consulte-nos. Também atendemos solicitaçoes de passeios customizados. Entre em contato
-        via e-mail, whatsapp o telefone.</p>
+        section
        
       </section>
 
@@ -157,13 +156,43 @@ class MyView1 extends PageViewElement {
 
   constructor() {
     super();
-    this.addEventListener('request', (e) => this.openDialog(e));  
+    this.addEventListener('request', (e) => this.openDialog(e));
+    this.locale = 'en';
+    this.addResourceForLocale(ftl`
+      header-title = Reserva E Sonha
+      body-title = Desenhamos seu caminho para que experimente o paraíso.
+      body-text = Queremos te levar com o  máximo conforto e segurança e ao melhor preço possível. 
+      Visitar Jericoacoara já é por si só uma experiência maravilhosa, mas nós queremos que também seja inesquecível.              
+    `,'pt');
+     this.addResourceForLocale(ftl`
+      header-title = Reserva y Sueña
+      body-title = Diseñamos tu camino para que experimentes el paraíso.
+      body-text = Queremos llevarte con el máximo confort y seguridad al mejor precio posible. 
+      Visitar Jericoacoara ya es por sí sólo una experiencia maravillosa, pero nosotros queremos que también sea inolvidable.              
+    `,'es');
+    this.addResourceForLocale(ftl`
+      header-title = Book & Dream
+      body-title = We design your journey to experience the paradise.
+      body-text = We want to take you with the maximum comfort and security at the best possible price.
+      Visiting Jericoacoara is already a wonderful experience, but we want it to be unforgettable.       
+    `,'en');  
+  }
+
+
+  static get properties() {
+    return {
+    
+      locale: {type: String}
+           
+    }
   }
 
   openDialog(e){
     let dialog = this.shadowRoot.querySelector('vaadin-dialog');
     dialog.opened = true;
   }
+
+
 }
 
 window.customElements.define('my-view1', MyView1);

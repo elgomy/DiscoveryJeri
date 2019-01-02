@@ -10,11 +10,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 import { LitElement, html } from '@polymer/lit-element';
 
-// These are the elements needed by this element.
-import { plusIcon, minusIcon } from './my-icons.js';
+
 
 // These are the shared styles needed by this element.
 import { ButtonSharedStyles } from './button-shared-styles.js';
+import '@vaadin/vaadin-lumo-styles/icons.js';
+import '@vaadin/vaadin-button/vaadin-button.js';
+import '@polymer/iron-icon/iron-icon.js';
 
 // This is a reusable element. It is not connected to the store. You can
 // imagine that it could just as well be a third-party element that you
@@ -36,9 +38,14 @@ class CounterElement extends LitElement {
       <div>
         <p>
           
+          <vaadin-button @click="${this._onIncrement}" theme="icon" aria-label="Add new item">
+            <iron-icon icon="lumo:plus"></iron-icon>
+          </vaadin-button>
+
+          <vaadin-button @click="${this._onDecrement}" theme="icon" aria-label="Add new item">
+            <iron-icon icon="lumo:minus"></iron-icon>
+          </vaadin-button>   
           
-          <button @click="${this._onIncrement}" title="Add 1">${plusIcon}</button>
-          <button @click="${this._onDecrement}" title="Minus 1">${minusIcon}</button>
           <span>${this.value}</span>
         </p>
       </div>

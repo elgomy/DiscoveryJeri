@@ -24,6 +24,7 @@ import { menuIcon } from './my-icons.js';
 import './snack-bar.js';
 import './social-icons.js';
 import '@polymer/paper-spinner/paper-spinner.js';
+import '@polymer/iron-dropdown/iron-dropdown.js';
 
 
 
@@ -112,6 +113,28 @@ class MyApp extends LitElement {
         border-bottom: 4px solid var(--app-header-selected-color);
       }
 
+      [slot="dropdown-content"] {
+        background-color: white;
+        opacity: .8;
+        line-height: 10px;
+        border-radius: 3px;
+        box-shadow: 0px 2px 6px #ccc;
+        width: 50px;
+        padding: 8px;
+
+      }
+
+      .flag{
+        display: block;
+        padding: 5px;
+        cursor: pointer;
+      }
+
+      .flag:hover{
+        background: #e0e0e0;
+      }
+
+
       .menu-btn {
         background: none;
         border: none;
@@ -187,6 +210,11 @@ class MyApp extends LitElement {
         padding-right: 5px;
       }
 
+      .footer__contact > a{
+        text-decoration: none;
+        color: white;
+      }
+
       .footer__copy, .footer__icons{
         justify-self: center;
         align-self: center;
@@ -232,22 +260,22 @@ class MyApp extends LitElement {
         }
 
         .footer__company{
-        grid-column: 1;
-      }
+          grid-column: 1;
+        }
 
-      .footer__contact{
-        grid-column: 2;
-      }
+        .footer__contact{
+          grid-column: 2;
+        }
 
-      .footer__faq{
-        grid-column: 3;
-      }
+        .footer__faq{
+          grid-column: 3;
+        }
 
-      .footer__copy, .footer__icons{
-        justify-self: center;
-        align-self: center;
-        grid-column: span 3;
-      }
+        .footer__copy, .footer__icons{
+          justify-self: center;
+          align-self: center;
+          grid-column: span 3;
+        }
       }
     </style>
 
@@ -262,12 +290,28 @@ class MyApp extends LitElement {
 
          <!-- This gets hidden on a small screen-->
       <nav class="toolbar-list">
+        <a href="" @click="${this.openDrop}><span title="spanish">${this.flag}</span></a>
+        <iron-dropdown id="dropdown" vertical-offset="32" horizontal-offset="7">
+            <div class="drop-content" slot="dropdown-content">
+          <div>
+
+           <span @click="${this.setLanguage}" class="flag" title="portuguese">🇧🇷</span>
+           <span @click="${this.setLanguage}" class="flag" title="spanish">🇪🇸</span>
+           <span @click="${this.setLanguage}" class="flag" title="english">🇬🇧</span>
+
+            </div>
+            </div>
+          </iron-dropdown>
         <a ?selected="${this._page === 'view1'}" href="/view1">Inicio</a>
         <a ?selected="${this._page === 'view2'}" href="/view2">Passeios</a>
         <a ?selected="${this._page === 'view3'}" href="/view3">Blog</a>
         <a ?selected="${this._page === 'view4'}" href="/view4">Ajuda</a>
       </nav>
+        
+      
       </app-toolbar>
+
+        
   
     </app-header>
 
@@ -285,7 +329,7 @@ class MyApp extends LitElement {
     <!-- Main content -->
 
     <main role="main" class="${this._page === 'view1'?'main-content_frontpage':'main-content'}">
-      <my-view1 class="page" ?active="${this._page === 'view1'}"></my-view1>
+      <my-view1 .locale="${this.locale}" class="page" ?active="${this._page === 'view1'}"></my-view1>
       <my-view2 class="page" ?active="${this._page === 'view2'}"></my-view2>
       <my-view3 class="page" ?active="${this._page === 'view3'}"></my-view3>
       <my-view4 class="page" ?active="${this._page === 'view4'}"></my-view4>
@@ -304,7 +348,7 @@ class MyApp extends LitElement {
         
         <div class="footer__contact">
           <h3>Contato</h3>
-          <img src="../images/envelope.svg" alt="email" />contatojericoacoara@gmail.com
+          <img src="../images/envelope.svg" alt="email" /><a href="mailto:contatojericoacoara@gmail.com">contatojericoacoara@gmail.com</a>
           <p>Av Principal, S/N
           Preá - Cruz - Ceará </br>
           CEP 62595-000 </br>
@@ -347,7 +391,10 @@ class MyApp extends LitElement {
       _page: { type: String },
       _drawerOpened: { type: Boolean },
       _snackbarOpened: { type: Boolean },
-      _offline: { type: Boolean }
+      _offline: { type: Boolean },
+      locale: {type: String},
+      flag: {type: String},
+   
     }
   }
 
@@ -369,11 +416,32 @@ class MyApp extends LitElement {
               header.className = 'header-solid';
           }
           else {
-              header.className = 'header-transparent'
+              header.className = 'header-transparent';
           }
       }
     
     }
+
+    window.onload = ()=>{
+
+      var ln = window.navigator.language||navigator.browserLanguage; 
+      console.log(ln);
+      if(ln == 'en' || ln == 'en-US' || ln == 'en-GB'){ 
+        console.log('kk');
+        this.locale = 'en';
+        this.flag = '\ud83c\uddec\ud83c\udde7';
+      }else if(ln == 'es' || ln == 'es-ES' ){ 
+        console.log('español');
+        this.locale = 'es';
+        this.flag = '\ud83c\uddea\ud83c\uddf8';
+      }else{ 
+        console.log('otro');
+        this.locale = 'pt';
+        this.flag = '\ud83c\udde7\ud83c\uddf7';
+      } 
+    }
+
+
   }
 
 
@@ -475,6 +543,37 @@ class MyApp extends LitElement {
 
   _drawerOpenedChanged(e) {
     this._updateDrawerState(e.target.opened);
+  }
+
+   openDrop(){
+    let drop = this.shadowRoot.querySelector('iron-dropdown');
+    drop.open()
+  }
+
+  setLanguage(e){
+  //  console.log(e.currentTarget.title);
+      if (e.currentTarget.title == 'spanish'){
+        this.locale = 'es';
+        this.flag = '\ud83c\uddea\ud83c\uddf8';
+        let drop = this.shadowRoot.querySelector('iron-dropdown');
+        drop.close();
+       
+        console.log(this.language);
+      }else if (e.currentTarget.title == 'english'){
+        this.locale = 'en';
+        this.flag = '\ud83c\uddec\ud83c\udde7';
+        let drop = this.shadowRoot.querySelector('iron-dropdown');
+        drop.close();
+        
+       
+      }else{
+        this.locale = 'pt';
+        this.flag = '\ud83c\udde7\ud83c\uddf7';
+        let drop = this.shadowRoot.querySelector('iron-dropdown');
+        drop.close();
+        
+        
+      }
   }
 }
 

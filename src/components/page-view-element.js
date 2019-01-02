@@ -9,8 +9,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 */
 
 import { LitElement } from '@polymer/lit-element';
+import {LocalizedLitElement, html, ftl} from '@dabolus/localized-lit-element';
 
-export class PageViewElement extends LitElement {
+
+
+export class PageViewElement extends LocalizedLitElement {
   // Only render this page if it's actually visible.
   shouldUpdate() {
     return this.active;

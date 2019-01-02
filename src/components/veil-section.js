@@ -61,7 +61,7 @@ class VeilSection extends LitElement {
 		}
 
 		.item4{
-			background: url('../images/grid2.jpg') no-repeat;
+			background: url('../images/grid2-small.jpg') no-repeat;
 			background-size: cover;
 			background-position: left center;
 			
@@ -114,7 +114,7 @@ class VeilSection extends LitElement {
 			}
 			
 			.item4{
-				background: url('../images/grid2.jpg') no-repeat;
+				background: url('../images/grid2-large.jpg') no-repeat;
 				background-size: cover;
 				background-position: left center;
 				grid-column: 2/4;

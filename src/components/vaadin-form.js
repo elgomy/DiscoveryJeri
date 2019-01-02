@@ -17,10 +17,16 @@ import '@vaadin/vaadin-text-field/vaadin-text-field.js';
 import '@vaadin/vaadin-date-picker/vaadin-date-picker.js';
 import '@vaadin/vaadin-checkbox/vaadin-checkbox.js';
 import '@vaadin/vaadin-select/vaadin-select.js';
+
 import '@vaadin/vaadin-list-box/vaadin-list-box.js';
 import '@vaadin/vaadin-button/vaadin-button.js';
 import '@vaadin/vaadin-time-picker/vaadin-time-picker.js';
 import '@polymer/iron-dropdown/iron-dropdown.js';
+
+import '@vaadin/custom-styles/custom-input.js';
+
+
+
 
 
 import './counter-element.js';
@@ -47,19 +53,6 @@ class VaadinForm extends LitElement {
 			--vaadin-form-layout-column-spacing: .5em;			
 		}
 
-		vaadin-text-field, vaadin-select-text-field, vaadin-date-picker, vaadin-time-picker{
-			color:red;
-			font-family: Playfair Display;
-			font-weight: bold;
-		}
-
-
-
-		
-		vaadin-button{
-			font-family: Playfair Display;
-		}	
-
 		.button-check_container{
 			float:right;
 		}
@@ -72,7 +65,7 @@ class VaadinForm extends LitElement {
 
 		[slot="dropdown-content"] {
         background-color: white;
-        opacity: .9;
+        opacity: .95;
         line-height: 10px;
         border-radius: 3px;
         box-shadow: 0px 2px 6px #ccc;
@@ -92,38 +85,40 @@ class VaadinForm extends LitElement {
 		  
 	     	<vaadin-form-layout id="form1">
 				<vaadin-text-field 
+				    class="custom-style"
+				    theme="my-text-field-styles"
 				  	placeholder="Nome"  
-				  	required         
-	        		error-message="Por favor digite seu nome">
-          	</vaadin-text-field>
+				  	required>
+          		</vaadin-text-field>
 
-			<vaadin-text-field 
-				placeholder="Email" 
-				required         
-	        	error-message="Por favor digite seu e-mail">
-			</vaadin-text-field>
+				<vaadin-text-field 
+					placeholder="Email" 
+					class="custom-style"
+					theme="my-text-field-styles"
+					required>
+				</vaadin-text-field>
 
-			<vaadin-select 			  	
-			  	placeholder="Origem" 
-			  	value="Option one"
-			  	required         
-	        	error-message="Por favor selecione a origem">
-	  			<template>
-	    			<vaadin-list-box>
-	      				<vaadin-item>Aeroporto Fortaleza</vaadin-item>
-	      				<vaadin-item>Aeroporto Jeri</vaadin-item>
-	      				<vaadin-item>Fortaleza</vaadin-item>
-	      				<vaadin-item>Jeri</vaadin-item>
-	      				<vaadin-item>Preá</vaadin-item>
-	    			</vaadin-list-box>
-	  			</template>
-			</vaadin-select>
+				<vaadin-select 	
+					class="select-style"
+				    theme="my-select-field-styles"
+				  	placeholder="Origem" 
+				  	value="Option one"
+				  	required>
+		  			<template>
+		    			<vaadin-list-box>
+		      				<vaadin-item>Aeroporto Fortaleza</vaadin-item>
+		      				<vaadin-item>Aeroporto Jeri</vaadin-item>
+		      				<vaadin-item>Fortaleza</vaadin-item>
+		      				<vaadin-item>Jeri</vaadin-item>
+		      				<vaadin-item>Preá</vaadin-item>
+		    			</vaadin-list-box>
+		  			</template>
+				</vaadin-select>
 
 			<vaadin-select 		  	 
 			  	placeholder="Destino" 
 			  	value="Option one"
-			  	required         
-	        	error-message="Por favor selecione o destino">
+			  	required>
 	  			<template>
 	    			<vaadin-list-box>
 	      				<vaadin-item>Aeroporto Fortaleza</vaadin-item>
@@ -142,8 +137,11 @@ class VaadinForm extends LitElement {
 			
 			 <vaadin-text-field 
 			 	placeholder="Passageiros" 
+			 	class="custom-style"
+				theme="my-text-field-styles"
 			 	id="passenger-field"
-			 	@click="${this.openDrop}">
+			 	@click="${this.openDrop}"
+			 	required>
 			</vaadin-text-field>
 
 			
@@ -170,8 +168,8 @@ class VaadinForm extends LitElement {
       		
 
 			  
-			  <vaadin-date-picker class="picker" placeholder="Ida"></vaadin-date-picker>	 
-			  <vaadin-time-picker placeholder="Horario ida"></vaadin-time-picker> 
+			  <vaadin-date-picker required class="picker" placeholder="Ida"></vaadin-date-picker>	 
+			  <vaadin-time-picker required placeholder="Horario ida"></vaadin-time-picker> 
 			  <vaadin-date-picker disabled  id="return-date" placeholder="Volta"></vaadin-date-picker>
 			   <vaadin-time-picker disabled id="return-time" placeholder="Horario volta"></vaadin-time-picker> 
 			  
