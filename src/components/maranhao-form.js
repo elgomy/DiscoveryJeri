@@ -35,20 +35,13 @@ import './counter-element.js';
 // This is a reusable element. It is not connected to the store. You can
 // imagine that it could just as well be a third-party element that you
 // got from someone else.
-class VaadinForm extends LitElement {
+class MaranhaoForm extends LitElement {
   render() {
     return html`
      
       <style>
 		
-		form{
-		  padding: 5px 15px;
-          background:white;
-          border-radius: 10px;
-          background:rgba(255,255,255,0.9);
-          max-width: 100%;          
-		}	
-		
+	
 		vaadin-form-layout{
 			--vaadin-form-layout-column-spacing: .5em;			
 		}
@@ -75,7 +68,7 @@ class VaadinForm extends LitElement {
 
 		@media (min-width: 950px) {
 		  form{
-		  	max-width: 80%;
+		  	
 		  }
 		}
         
@@ -106,11 +99,8 @@ class VaadinForm extends LitElement {
 				  	required>
 		  			<template>
 		    			<vaadin-list-box>
-		      				<vaadin-item>Aeroporto Fortaleza</vaadin-item>
-		      				<vaadin-item>Aeroporto Jeri</vaadin-item>
-		      				<vaadin-item>Fortaleza</vaadin-item>
-		      				<vaadin-item>Jeri</vaadin-item>
-		      				<vaadin-item>Preá</vaadin-item>
+		      				<vaadin-item>Barreirinhas</vaadin-item>
+		      				<vaadin-item>São Luís</vaadin-item>
 		    			</vaadin-list-box>
 		  			</template>
 				</vaadin-select>
@@ -121,11 +111,8 @@ class VaadinForm extends LitElement {
 			  	required>
 	  			<template>
 	    			<vaadin-list-box>
-	      				<vaadin-item>Aeroporto Fortaleza</vaadin-item>
-	      				<vaadin-item>Aeroporto Jeri</vaadin-item>
-	      				<vaadin-item>Fortaleza</vaadin-item>
-	      				<vaadin-item>Jeri</vaadin-item>
-	      				<vaadin-item>Preá</vaadin-item>
+	      				<vaadin-item>Barreirinhas</vaadin-item>
+	      				<vaadin-item>São Luís </vaadin-item>
 	    			</vaadin-list-box>
 	  			</template>
 			  </vaadin-select>
@@ -253,4 +240,4 @@ class VaadinForm extends LitElement {
 
 }
 
-window.customElements.define('vaadin-form', VaadinForm);
+window.customElements.define('maranhao-form', MaranhaoForm);

@@ -19,7 +19,7 @@ import './price-card.js';
 
 
 
-class CardsSection extends LitElement {
+class CardsJeri extends LitElement {
   render() {
     return html`
 
@@ -107,4 +107,4 @@ class CardsSection extends LitElement {
     }; */
 }
 
-window.customElements.define('cards-section', CardsSection);
+window.customElements.define('cards-jeri', CardsJeri);

@@ -14,15 +14,14 @@ import { PageViewElement } from './page-view-element.js';
 // These are the shared styles needed by this element.
 import { SharedStyles } from './shared-styles.js';
 
-import './vaadin-form.js';
+
 import './veil-section.js';
 import './fixed-button.js';
 import './photo-wall.js';
 import './form-passeios.js';
+import './header-form.js'
 import '@vaadin/vaadin-dialog/vaadin-dialog.js';
 import {LocalizedLitElement, html, ftl} from '@dabolus/localized-lit-element';
-
-
 
 
 class MyView1 extends PageViewElement {
@@ -60,16 +59,19 @@ class MyView1 extends PageViewElement {
 
         .header-form{
           display:none;
+
         }
 
         .body-form_container{
           display: grid;
-          grid-template-columns:1;
+          grid-template-columns: 1;
+          
         }
 
         .body-form{
           justify-self: center;
           align-self: center;
+
         }
 
         h2{
@@ -81,6 +83,8 @@ class MyView1 extends PageViewElement {
           text-align: justify;
           text-justify: inter-word;
         }
+
+        
 
        
 
@@ -97,6 +101,7 @@ class MyView1 extends PageViewElement {
             align-self: start;
             display:block;
             grid-column: 1/3;
+            
 
           }
 
@@ -122,8 +127,13 @@ class MyView1 extends PageViewElement {
       <fixed-button></fixed-button>
 
       <div class="front-header_container"> 
-        <p>${this.localize('header-title')}</p>        
-        <vaadin-form class="header-form"></vaadin-form>         
+        <p>${this.localize('header-title')}</p> 
+        
+        <div class="header-form">
+          <header-form></header-form>
+        </div>
+           
+                
       </div>
 
       <section>
@@ -131,7 +141,7 @@ class MyView1 extends PageViewElement {
         <p>${this.localize('body-text')}</p>  
                
         <div class="body-form_container">
-          <vaadin-form class="body-form"></vaadin-form>
+          <header-form class="body-form"></header-form>
         </div>  
       </section>
         
@@ -139,16 +149,13 @@ class MyView1 extends PageViewElement {
          <veil-section></veil-section>
       </section>
 
-      <section>
-        section
-       
-      </section>
-
-        <vaadin-dialog>
+       <vaadin-dialog>
           <template>
             <form-passeios></form-passeios>
           </template>
         </vaadin-dialog>
+
+  
           
      
     `;
@@ -175,17 +182,21 @@ class MyView1 extends PageViewElement {
       body-title = We design your journey to experience the paradise.
       body-text = We want to take you with the maximum comfort and security at the best possible price.
       Visiting Jericoacoara is already a wonderful experience, but we want it to be unforgettable.       
-    `,'en');  
+    `,'en'); 
+
+      
+   
   }
 
 
   static get properties() {
     return {
     
-      locale: {type: String}
-           
+      locale: {type: String},
+          
     }
   }
+
 
   openDialog(e){
     let dialog = this.shadowRoot.querySelector('vaadin-dialog');

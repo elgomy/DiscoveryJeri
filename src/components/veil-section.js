@@ -9,7 +9,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 */
 
 import { LitElement, html } from '@polymer/lit-element';
-import './cards-section.js';
+import './cards-jeri.js';
+import './cards-maranhao.js';
 
 
 class VeilSection extends LitElement {
@@ -210,8 +211,11 @@ class VeilSection extends LitElement {
 		
 
 		<div class="item item5">
-			<h2><span>NOSSOS PREÇOS</span></h2>
-			<cards-section></cards-section>
+			<h2><span>PREÇOS JERICOACOARA</span></h2>
+			<cards-jeri></cards-jeri>
+
+			<h2><span>PREÇOS MARANHAO</span></h2>
+			<cards-maranhao></cards-maranhao>
 
 		</div>
 
