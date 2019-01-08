@@ -98,8 +98,8 @@ class TransferCard extends LitElement {
           </div>      
     		</div>
     			<div class="card-actions">
-      			<paper-button @click="${this.requestButton}">Solicita!</paper-button>
-      			<paper-button>Detalhes</paper-button>
+      			<paper-button @click="${this.requestButton}">Solicitar Traslado</paper-button>
+      			
     			</div>
         
 		</paper-card>

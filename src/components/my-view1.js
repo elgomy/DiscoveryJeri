@@ -146,7 +146,7 @@ class MyView1 extends PageViewElement {
       </section>
         
       <section>        
-         <veil-section></veil-section>
+         <veil-section .locale="${this.locale}"></veil-section>
       </section>
 
       <section>

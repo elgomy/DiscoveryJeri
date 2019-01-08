@@ -8,12 +8,13 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 */
 
-import { LitElement, html } from '@polymer/lit-element';
+
 import './transfer-card.js';
+import {LocalizedLitElement, html, ftl} from '@dabolus/localized-lit-element';
 
 
 
-class VeilSection extends LitElement {
+class VeilSection extends LocalizedLitElement {
   render() {
     return html`
       
@@ -213,8 +214,9 @@ class VeilSection extends LitElement {
 	 <div class="container">
 
 	 <div class="item item2">
-			<h2>TRASLADOS</h2>
-			<p>Traslado Fortaleza-Jeri desde R$ 100!!*</p>
+			<h2>${this.localize('transfer-title')}</h2>
+			<p>${this.localize('transfer-subtitle')}</p>
+			
 		</div>
 		
 		
@@ -235,8 +237,8 @@ class VeilSection extends LitElement {
 		
 
 		<div class="item item3">
-			<h2>PASSEIOS</h2>
-			<p>Suba, abra os braços e sinta o paraíso</p>
+			<h2>${this.localize('tour-title')}</h2>
+			<p>${this.localize('tour-subtitle')}</p>
 		</div>
 		
 		
@@ -253,14 +255,14 @@ class VeilSection extends LitElement {
 		
 
 		<div class="item item5">
-			<h2><span>PREÇOS TRASLADOS</span></h2>
-
-			<p>Os traslados para Jericoacora desde Fortaleza incluem qualquer ponto da cidade de Fortaleza, assim como o aeroporto.
-			A opçao da praia do Preá, muito solicitada para quem deseja maior tranquilidade ou para quem deseja fazer kite-surf
-			também está incluída nesse traslado.</p>
-			<p>Os traslados Barreirinhas-São Luís se referem ao traslado para visitar os Lençóis Maranhenses.</p>
-			<p>Para outras opçoes de traslados consulte-nos.</p>
-			<p class="text-note">*Os preços mostrados estão sujeitos a lotação no caso de veículo compartilhado. Pode contratar um veículo privativo cujo preço também mostramos.</p>
+			<h2><span>${this.localize('prices-title')}</span></h2>
+			
+			<p>${this.localize('prices-paragraph1')}</p>
+			<p>${this.localize('prices-paragraph2')}</p>
+			<p>${this.localize('prices-paragraph3')}</p>
+			<p class="text-note">${this.localize('prices-paragraph4')}</p>
+			
+			
 			<div class="transfer-card__container">
 				<transfer-card 
 					header="Van Fortaleza-Jeri"
@@ -311,7 +313,7 @@ class VeilSection extends LitElement {
 				</transfer-card>
 			</div>
 
-			<h2><span>PASSEIOS</span></h2>
+			<h2><span>${this.localize('tour-title')}</span></h2>
 			 <p>Desenhamos uma oferta de passeios tanto em Jericoacoara como nos Lençóis Maranhenses para que sua experiência seja única.
 			 Pode consultar os preços e detalhes dos nossos passeios na seção <a href="">passeios</a></p>
 
@@ -324,9 +326,49 @@ class VeilSection extends LitElement {
     `;
   }
 
+    constructor() {
+    super();
+ 
+    this.locale = 'en';
+    this.addResourceForLocale(ftl`
+      transfer-title = TRASLADOS
+      tour-title = PASSEIOS
+      prices-title = PREÇOS TRASLADOS  
+      transfer-subtitle = Traslado Fortaleza-Jeri desde R$ 100!!*  
+      tour-subtitle =  Suba, abra os braços e sinta o paraíso
+      prices-paragraph1 = Os traslados para Jericoacora desde Fortaleza incluem qualquer ponto da cidade de Fortaleza, assim como o aeroporto. A opçao da praia do Preá, muito solicitada para quem deseja maior tranquilidade ou para quem deseja fazer kite-surf, também está incluída nesse traslado.       
+      prices-paragraph2 = Os traslados Barreirinhas-São Luís se referem ao traslado para visitar os Lençóis Maranhenses.
+      prices-paragraph3 = Para outras opçoes de traslados consulte-nos.
+      prices-paragraph4 = *Os preços mostrados estão sujeitos a lotação no caso de veículo compartilhado. Pode contratar um veículo privativo cujo preço também mostramos a seguir.
+    `,'pt');
+     this.addResourceForLocale(ftl`
+      transfer-title = TRANSFERS
+      tour-title = TOURS
+      prices-title = PRECIOS TOURS  
+      transfer-subtitle = Transfer Fortaleza-Jeri desde R$ 100!!*  
+      tour-subtitle =  Sube, abre los brazos y siente el paraíso 
+      prices-paragraph1 = Los transfers para Jericoacoara desde Fortalez incluyem cualquier punto de la ciudad de Fortaleza, así como el aeropuerto. La opción de la playa de Preá, muy solicitada para aquellos que desean una mayor tranquilidad o para quienes desean practicar kite-surf, también está incluída en este tránsfer.          
+      prices-paragraph2 = Los transfers Barreirinhas-São Luís hacen referencia al transfer para visitar los Lençóis Maranhenses.
+      prices-paragraph3 = Para otras opciones de transfers consúltenos.
+      prices-paragraph4 = *Los precios mostrados están sujetos a lotación el caso del vehículo compartido. Puede contratar un veículo privado cuyo precio también mostramos a continuación.
+    `,'es');
+    this.addResourceForLocale(ftl`
+      transfer-title = TRANSFERS
+      tour-title = TOURS
+      prices-title = TOURS PRICES    
+      transfer-subtitle =  Transfer Fortaleza-Jeri from R$ 100!!* 
+      tour-subtitle =  Get in, open your arms and feel the paradise  
+      prices-paragraph1 = Transfers to Jericoacoara from Fortaleza include any point in the city of Fortaleza, as well as the airport. The beach option of Preá, highly requested for those who want more tranquility or for those who wish to practice kite-surfing, is also included in this transfer.
+      prices-paragraph2 = The Barreirinhas-São Luís transfers refer to the transfer to visit the Lençóis Maranhenses.
+      prices-paragraph3 = For other transfer options, consult us.
+      prices-paragraph4 = The prices shown are subject to the case of the shared vehicle is fill. You can hire a private vehicle whose price we also show below.
+    `,'en'); 
+ 
+  }
+
   static get properties() {
     return {
- 
+ 		locale: {type: String},
     }
   }
 }
