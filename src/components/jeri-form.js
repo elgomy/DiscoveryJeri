@@ -19,13 +19,13 @@ import '@vaadin/vaadin-checkbox/vaadin-checkbox.js';
 import '@vaadin/vaadin-select/vaadin-select.js';
 
 import '@vaadin/vaadin-list-box/vaadin-list-box.js';
-import '@vaadin/vaadin-button/vaadin-button.js';
+import '@polymer/paper-button/paper-button.js';
 import '@vaadin/vaadin-time-picker/vaadin-time-picker.js';
 import '@polymer/iron-dropdown/iron-dropdown.js';
 
 import '@vaadin/custom-styles/custom-input.js';
 
-
+import { SharedStyles } from './shared-styles.js';
 
 
 
@@ -38,7 +38,7 @@ import './counter-element.js';
 class JeriForm extends LitElement {
   render() {
     return html`
-     
+     ${SharedStyles}
       <style>
 		
 			
@@ -55,7 +55,11 @@ class JeriForm extends LitElement {
 			font-size: .85em;
 		}
 
-
+		paper-button{
+			background: var(--app-accent-color); 
+			color: white;
+			font-weight: bold;
+		}
 
 		[slot="dropdown-content"] {
         background-color: white;
@@ -111,7 +115,7 @@ class JeriForm extends LitElement {
 				</vaadin-select>
 
 			<vaadin-select 		  	 
-			  	placeholder="Destino" 
+			  	placeholder="Jericoacoara" 
 			  	value="Option one"
 			  	required>
 	  			<template>
@@ -120,7 +124,7 @@ class JeriForm extends LitElement {
 	      				<vaadin-item>Praia Fortaleza</vaadin-item>
 	      				<vaadin-item>Aeroporto Jeri</vaadin-item>
 	      				<vaadin-item>Fortaleza</vaadin-item>
-	      				<vaadin-item>Jeri</vaadin-item>
+	      				<vaadin-item>Jericoacoara</vaadin-item>
 	      				<vaadin-item>Preá</vaadin-item>
 	    			</vaadin-list-box>
 	  			</template>
@@ -174,8 +178,9 @@ class JeriForm extends LitElement {
 		  </vaadin-form-layout>
 		  <div class="button-check_container">
 		   <vaadin-checkbox @change="${this.enableReturn}">Adicionar volta</vaadin-checkbox>
+
+		   	  <paper-button>Solicitar Traslado</paper-button>
 			 
-			  <vaadin-button theme="primary">Solicitar Traslado</vaadin-button>
 			</div>
 			<div style="clear: both"></div>
 		 </form>

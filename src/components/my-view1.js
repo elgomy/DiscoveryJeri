@@ -16,7 +16,7 @@ import { SharedStyles } from './shared-styles.js';
 
 
 import './veil-section.js';
-import './fixed-button.js';
+import './fixed-button-whatsapp.js';
 import './photo-wall.js';
 import './form-passeios.js';
 import './header-form.js'
@@ -80,12 +80,12 @@ class MyView1 extends PageViewElement {
 
         p{
           font-size: 1.2rem;
-          text-align: justify;
+
+        text-align: justify;
           text-justify: inter-word;
+      
+          
         }
-
-        
-
        
 
         @media (min-width: 580px) and (max-width: 950px){
@@ -124,7 +124,7 @@ class MyView1 extends PageViewElement {
       </style>
 
       
-      <fixed-button></fixed-button>
+      <fixed-button-whatsapp></fixed-button-whatsapp>
 
       <div class="front-header_container"> 
         <p>${this.localize('header-title')}</p> 
@@ -149,6 +149,10 @@ class MyView1 extends PageViewElement {
          <veil-section></veil-section>
       </section>
 
+      <section>
+        
+      </section>
+
        <vaadin-dialog>
           <template>
             <form-passeios></form-passeios>
@@ -168,20 +172,17 @@ class MyView1 extends PageViewElement {
     this.addResourceForLocale(ftl`
       header-title = Reserva E Sonha
       body-title = Desenhamos seu caminho para que experimente o paraíso.
-      body-text = Queremos te levar com o  máximo conforto e segurança e ao melhor preço possível. 
-      Visitar Jericoacoara já é por si só uma experiência maravilhosa, mas nós queremos que também seja inesquecível.              
+      body-text = Queremos te levar com o  máximo conforto e segurança e ao melhor preço possível. Visitar Jericoacoara ou Lençóis Maranhenses já é por si só uma experiência maravilhosa, mas nós queremos que também seja inesquecível.              
     `,'pt');
      this.addResourceForLocale(ftl`
       header-title = Reserva y Sueña
       body-title = Diseñamos tu camino para que experimentes el paraíso.
-      body-text = Queremos llevarte con el máximo confort y seguridad al mejor precio posible. 
-      Visitar Jericoacoara ya es por sí sólo una experiencia maravillosa, pero nosotros queremos que también sea inolvidable.              
+      body-text = Queremos llevarte con el máximo confort y seguridad al mejor precio posible. Visitar Jericoacoara o Lençóis Maranhenses ya es por sí sólo una experiencia maravillosa, pero nosotros queremos que también sea inolvidable.              
     `,'es');
     this.addResourceForLocale(ftl`
       header-title = Book & Dream
       body-title = We design your journey to experience the paradise.
-      body-text = We want to take you with the maximum comfort and security at the best possible price.
-      Visiting Jericoacoara is already a wonderful experience, but we want it to be unforgettable.       
+      body-text = We want to take you with the maximum comfort and security at the best possible price. Visiting Jericoacoara or Lençóis Maranhenses is already a wonderful experience, but we want it to be unforgettable.       
     `,'en'); 
 
       

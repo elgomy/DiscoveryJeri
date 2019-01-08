@@ -43,6 +43,8 @@ class MyApp extends LitElement {
         --app-light-text-color: white;
         --app-section-even-color: #f7f7f7;
         --app-section-odd-color: white;
+        
+        --app-accent-text-color: #424242;
 
         --app-header-background-color: white;
         
@@ -114,7 +116,7 @@ class MyApp extends LitElement {
       }
 
       [slot="dropdown-content"] {
-        background-color: white;
+        background-color: var(--app-primary-color);
         opacity: .8;
         line-height: 10px;
         border-radius: 3px;
@@ -191,8 +193,8 @@ class MyApp extends LitElement {
 
       .footer__container {
         padding: 24px;
-        background: var(--app-drawer-background-color);
-        color: var(--app-drawer-text-color);       
+        
+        color: var(--app-accent-text-color);       
         display: grid;
         grid-template-columns: 1fr 1fr;
         
@@ -201,6 +203,10 @@ class MyApp extends LitElement {
 
       .footer__company, .footer__contact{
         grid-column: span 2;
+      }
+
+      .footer h3{
+        color: #63a6bc;
       }
 
       .footer__contact > img{
@@ -212,7 +218,7 @@ class MyApp extends LitElement {
 
       .footer__contact > a{
         text-decoration: none;
-        color: white;
+        color: var(--app-accent-text-color);
       }
 
       .footer__copy, .footer__icons{
@@ -223,7 +229,7 @@ class MyApp extends LitElement {
       }
 
       .footer__faq > a{
-        color: var(--app-primary-color);
+        color: var(--app-accent-text-color);
         text-decoration: none;
       }
     
@@ -256,7 +262,8 @@ class MyApp extends LitElement {
         .footer__container{
           font-size: 1em;
           grid-template-columns: 1fr 1fr 1fr;
-          grid-column-gap: 1.2rem;
+          grid-column-gap: 4rem;
+          text-align: center;
         }
 
         .footer__company{
@@ -265,6 +272,7 @@ class MyApp extends LitElement {
 
         .footer__contact{
           grid-column: 2;
+          border-top: 1px solid #e0e0e0;
         }
 
         .footer__faq{
@@ -275,6 +283,7 @@ class MyApp extends LitElement {
           justify-self: center;
           align-self: center;
           grid-column: span 3;
+          padding-top: 2rem;
         }
       }
     </style>
@@ -348,7 +357,7 @@ class MyApp extends LitElement {
         
         <div class="footer__contact">
           <h3>Contato</h3>
-          <img src="../images/envelope.svg" alt="email" /><a href="mailto:contatojericoacoara@gmail.com">contatojericoacoara@gmail.com</a>
+          <img src="../images/email-logo.svg" alt="email" /><a href="mailto:contatojericoacoara@gmail.com">contatojericoacoara@gmail.com</a>
           <p>Av Principal, S/N
           Preá - Cruz - Ceará </br>
           CEP 62595-000 </br>
@@ -425,17 +434,13 @@ class MyApp extends LitElement {
     window.onload = ()=>{
 
       var ln = window.navigator.language||navigator.browserLanguage; 
-      console.log(ln);
       if(ln == 'en' || ln == 'en-US' || ln == 'en-GB'){ 
-        console.log('kk');
         this.locale = 'en';
         this.flag = '\ud83c\uddec\ud83c\udde7';
       }else if(ln == 'es' || ln == 'es-ES' ){ 
-        console.log('español');
         this.locale = 'es';
         this.flag = '\ud83c\uddea\ud83c\uddf8';
       }else{ 
-        console.log('otro');
         this.locale = 'pt';
         this.flag = '\ud83c\udde7\ud83c\uddf7';
       } 

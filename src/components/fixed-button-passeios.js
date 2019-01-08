@@ -10,31 +10,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 import { LitElement, html } from '@polymer/lit-element';
 
+import '@polymer/paper-fab/paper-fab.js';
+import { removeFromCartIcon } from './my-icons.js';
 
-class SocialIcons extends LitElement {
+class FixedButtonPasseios extends LitElement {
   render() {
     return html`
       
       <style>
-
-      img{
-      	width: 35px;
-      }
-
+		paper-fab{
+			--paper-fab-background: #6dd569;
+			display: scroll;
+	        position: fixed;
+	        bottom: 40px;
+	        right: 15px;
+	        z-index: 3;
+										
+		}
       </style>
-
-      <a href="https://www.facebook.com/discoveryjeri/" target="_blank"><img src="../images/facebook-logo.svg" alt="facebook" /></a>
-      <a href="https://twitter.com/discovery_jeri" target="_blank"><img src="../images/twitter-logo.svg" alt="twitter" /></a>
-	    <a href="https://www.instagram.com/discovery_jeri/" target="_blank"><img src="../images/instagram-logo.svg" alt="instagram" /></a>
-	 
-	 
-	 
-
-
-	 
-
-
-
+	  
+	  <a href="https://api.whatsapp.com/send?phone=5588997817010"><paper-fab alt="whatsapp" src="images/whatsapp.svg"></paper-fab></a>
 
 	  
     `;
@@ -47,4 +42,4 @@ class SocialIcons extends LitElement {
   }
 }
 
-window.customElements.define('social-icons', SocialIcons);
+window.customElements.define('fixed-button-passeios', FixedButtonPasseios);

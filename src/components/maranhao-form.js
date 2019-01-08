@@ -19,13 +19,13 @@ import '@vaadin/vaadin-checkbox/vaadin-checkbox.js';
 import '@vaadin/vaadin-select/vaadin-select.js';
 
 import '@vaadin/vaadin-list-box/vaadin-list-box.js';
-import '@vaadin/vaadin-button/vaadin-button.js';
+import '@polymer/paper-button/paper-button.js';
 import '@vaadin/vaadin-time-picker/vaadin-time-picker.js';
 import '@polymer/iron-dropdown/iron-dropdown.js';
 
 import '@vaadin/custom-styles/custom-input.js';
 
-
+import { SharedStyles } from './shared-styles.js';
 
 
 
@@ -38,7 +38,7 @@ import './counter-element.js';
 class MaranhaoForm extends LitElement {
   render() {
     return html`
-     
+       ${SharedStyles}
       <style>
 		
 	
@@ -52,6 +52,12 @@ class MaranhaoForm extends LitElement {
 
 		vaadin-checkbox{
 			font-size: .85em;
+		}
+
+		paper-button{
+			background: var(--app-accent-color); 
+			color: white;
+			font-weight: bold;
 		}
 
 
@@ -99,14 +105,14 @@ class MaranhaoForm extends LitElement {
 				  	required>
 		  			<template>
 		    			<vaadin-list-box>
+		    				<vaadin-item>São Luís</vaadin-item>
 		      				<vaadin-item>Barreirinhas</vaadin-item>
-		      				<vaadin-item>São Luís</vaadin-item>
 		    			</vaadin-list-box>
 		  			</template>
 				</vaadin-select>
 
 			<vaadin-select 		  	 
-			  	placeholder="Destino" 
+			  	placeholder="Barreirinhas" 
 			  	value="Option one"
 			  	required>
 	  			<template>
@@ -166,7 +172,7 @@ class MaranhaoForm extends LitElement {
 		  <div class="button-check_container">
 		   <vaadin-checkbox @change="${this.enableReturn}">Adicionar volta</vaadin-checkbox>
 			 
-			  <vaadin-button theme="primary">Solicitar Traslado</vaadin-button>
+			  <paper-button>Solicitar Traslado</paper-button>
 			</div>
 			<div style="clear: both"></div>
 		 </form>

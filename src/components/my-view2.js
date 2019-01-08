@@ -13,7 +13,7 @@ import { PageViewElement } from './page-view-element.js';
 
 import { SharedStyles } from './shared-styles.js';
 
-import './fixed-button.js';
+import './fixed-button-whatsapp.js';
 import './promotional-text.js';
 import './grid-passeios1.js';
 
@@ -28,7 +28,7 @@ class MyView2 extends PageViewElement {
 
       </style>
 
-      <fixed-button></fixed-button>
+      <fixed-button-whatsapp></fixed-button-whatsapp>
 
       <section>
         <p>Passeios que sao momentos, momentos que sao experiências, experiências que sao lembranças.

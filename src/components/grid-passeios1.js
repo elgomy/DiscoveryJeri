@@ -64,19 +64,19 @@ class GridPasseios1 extends LitElement {
 	.item2{      
         grid-column: 2;
         grid-row: 4/6; 
-        border: 5px solid;    
+         
 	}
 
 	.item4{   	       
         grid-column: 1;
         grid-row: 4/7; 
-        border: 5px solid;                                
+                                        
 	}
 
 	.item8{ 		       
         grid-column: 2;
         grid-row: 6/7; 
-        border: 5px solid;                                
+                                       
 	}
 
 	.item5{	
@@ -87,7 +87,7 @@ class GridPasseios1 extends LitElement {
 	.item3{  		       
         grid-column: 1/3;
         grid-row: 10/12; 
-        border: 5px solid;                                
+                                       
 	}
 
 	.item9{	
@@ -98,13 +98,13 @@ class GridPasseios1 extends LitElement {
 	.item7{        
         grid-column: 1;
         grid-row: 15/17; 
-        border: 5px solid;                                
+                                       
 	}		
 
 	.item10{
         grid-column: 2;
         grid-row: 15/17; 
-        border: 5px solid;                                
+                                       
 	}
 
 	.item12{	
@@ -115,7 +115,7 @@ class GridPasseios1 extends LitElement {
 	.item11{	          
         grid-column: 1/3;
         grid-row: 20/22; 
-        border: 5px solid;                                
+                                       
 	}
 
 
@@ -142,19 +142,19 @@ class GridPasseios1 extends LitElement {
 		.item2{      
           grid-column: 2;
           grid-row: 1/3; 
-          border: 5px solid;    
+            
 		}
 
 		.item3{        
           grid-column: 3;
           grid-row: 1/3; 
-          border: 5px solid;                                
+                                         
 		}
 
 		.item4{        
           grid-column: 1;
           grid-row: 3/6; 
-          border: 5px solid;                                
+                                         
 		}
 
 		.item5{	
@@ -166,19 +166,19 @@ class GridPasseios1 extends LitElement {
 		  display: inline-block;      
           grid-column: 3;
           grid-row: 3/7; 
-          border: 5px solid;                                
+                                         
 		}
 
 		.item7{       
           grid-column: 1;
           grid-row: 6/9; 
-          border: 5px solid;                                
+                                         
 		}
 
 		.item8{      
           grid-column: 2;
           grid-row: 5/7; 
-          border: 5px solid;                                
+                                       
 		}
 
 		.item9{	
@@ -189,13 +189,13 @@ class GridPasseios1 extends LitElement {
 		.item10{ 
           grid-column: 3;
           grid-row: 7/10; 
-          border: 5px solid;                                
+                                       
 		}
 
 		.item11{ 
           grid-column: 1/3;
           grid-row: 9/12; 
-          border: 5px solid;  
+          
 
 		}
 

@@ -16,7 +16,7 @@ import '@polymer/paper-button/paper-button.js';
 import '@webcomponents/shadycss/entrypoints/apply-shim.js';
 import { SharedStyles } from './shared-styles.js';
 
-class PriceCard extends LitElement {
+class TransferCard extends LitElement {
   render() {
     return html`
        ${SharedStyles}
@@ -35,21 +35,19 @@ class PriceCard extends LitElement {
             height: 100%;
       	 }
 
-         ul{
-          list-style-type: none;
-         }
-
-         li{
-           font-size: .9em;
-         }
+       
 
          paper-card{
+           text-align: center;
+           --paper-card-header-color: var(--app-accent-color); 
            width: 100%;
+          
            
          }
         
         .card-content{
-          
+          display: grid;
+         
           
         }
 
@@ -58,35 +56,52 @@ class PriceCard extends LitElement {
           background: var(--app-accent-color); 
 
         }
+
+        .price{
+          color: #63a6bc;
+        }
+
+        .price > span{
+          font-size: 2em;
+          color: #63a6bc;
+        }
+
+        .detail{
+          font-size: .8em;
+        }
      
-        
+        @media (min-width: 900px) {
+          
+          paper-card{
+            width: 325px;
+          }
+
+        }
 
        
 		
       	</style>
 	  
-	  	<paper-card heading="${this.header}" alt="Emmental">
+	  	<paper-card heading="${this.header}" alt="header">
         
   			<div class="card-content">
-    			<div class="prices__container">
-    				<div class="prices__concept">
-    					
-    				  <ul>
-   						   ${this.item.map(i => html`<li>${i}</li>`)}
- 						  </ul>
-    					
-    				</div>
-    				<div class="prices__price">
-              <ul>
-    					   ${this.price.map(i => html`<li>${i}</li>`)}
-              </ul>
-    				</div>
+          
+
+          <div class="price__container">
+            <p class="price"> <span>${this.price}</span> por pessoa</p>
+            <p><span class="full-price">${this.fullPrice}</span> veículo completo</br>
+              Até <span class="passengers">${this.passengers}</span> passageiros</p>
+          </div>
+         
+          <div class="detail__container">
+            <p class="detail">${this.detail}</p>
+          </div>      
+    		</div>
+    			<div class="card-actions">
+      			<paper-button @click="${this.requestButton}">Solicita!</paper-button>
+      			<paper-button>Detalhes</paper-button>
     			</div>
-  			</div>
-  			<div class="card-actions">
-    			<paper-button @click="${this.requestButton}">Solicita!</paper-button>
-    			<paper-button>Detalhes</paper-button>
-  			</div>
+        
 		</paper-card>
 	  
     `;
@@ -102,8 +117,13 @@ class PriceCard extends LitElement {
     return {
  		header: String,
  		item: Array,
-    price: Array,
+    price: String,
+    fullPrice: String,
     image: String,
+    passengers: String,
+   
+
+    detail: String,
  		
     }
   }
@@ -113,4 +133,4 @@ class PriceCard extends LitElement {
   }
 }
 
-window.customElements.define('price-card', PriceCard);
+window.customElements.define('transfer-card', TransferCard);

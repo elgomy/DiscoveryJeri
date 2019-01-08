@@ -9,8 +9,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 */
 
 import { LitElement, html } from '@polymer/lit-element';
-import './cards-jeri.js';
-import './cards-maranhao.js';
+import './transfer-card.js';
+
 
 
 class VeilSection extends LitElement {
@@ -68,9 +68,10 @@ class VeilSection extends LitElement {
 			
 		}		
 
-		p{
+		.item1 p, .item2 p, .item3 p, .item4 p{
 			margin-left: 1em;
 			color: #424242;
+			font-weight: bold;
 		}
 
 		.item2 p, .item3 p{
@@ -86,9 +87,26 @@ class VeilSection extends LitElement {
 		}
 
 		.item2,.item3{			
-				background: #e0e0e0;
+				background: #49a5bf; /* Old browsers */
+        background: -webkit-linear-gradient(left, #49a5bf 0%, #6bb1bc 30%, #93cede 98%, #93cede 98%, #93cede 100%, #75bdd1 100%);
+        background: -o-linear-gradient(left, #49a5bf 0%, #6bb1bc 30%, #93cede 98%, #93cede 98%, #93cede 100%, #75bdd1 100%);
+        background: linear-gradient(to right, #49a5bf 0%, #6bb1bc 30%, #93cede 98%, #93cede 98%, #93cede 100%, #75bdd1 100%); /* FF3.6-15 */ /* Chrome10-25,Safari5.1-6 */ /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 		}
 
+		transfer-card{
+			justify-self: center;
+		}
+
+		.transfer-card__container{
+				display: grid;
+				grid-template-columns: 1fr;			
+				grid-row-gap: 1.3rem;		
+		}
+		
+		 p{
+        text-align: justify;
+          text-justify: inter-word;
+      }
 		
 		@media (min-width: 900px) {
 
@@ -151,9 +169,7 @@ class VeilSection extends LitElement {
 				grid-column: 1/4;	
 			}
 			
-			.item2,.item3{			
-				background: #e0e0e0;
-			}
+			
 
 			.item1 .text, .item4 .text{
 				font-size: .9em;		
@@ -162,8 +178,34 @@ class VeilSection extends LitElement {
 			.text{
 				padding: 2rem;
 			}
-		
+
+			.text-note{
+				font-size: .8em;
+				color: #757575;
+			}
+
+			.transfer-card__container{
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				grid-template-rows: 1fr 1fr;
+				grid-row-gap: 1.3rem;
+				
+
+			}
+
 		}
+
+		@media (min-width: 1300px) {
+
+			.transfer-card__container{
+				
+				grid-template-columns: 1fr 1fr 1fr;
+				
+			}
+		}
+
+		
+		
 										
 		
       </style>
@@ -172,7 +214,7 @@ class VeilSection extends LitElement {
 
 	 <div class="item item2">
 			<h2>TRASLADOS</h2>
-			<p>Traslado Fortaleza-Jeri desde <span style="font-weight:bold;">R$ 100!!*</span></p>
+			<p>Traslado Fortaleza-Jeri desde R$ 100!!*</p>
 		</div>
 		
 		
@@ -211,11 +253,67 @@ class VeilSection extends LitElement {
 		
 
 		<div class="item item5">
-			<h2><span>PREÇOS JERICOACOARA</span></h2>
-			<cards-jeri></cards-jeri>
+			<h2><span>PREÇOS TRASLADOS</span></h2>
 
-			<h2><span>PREÇOS MARANHAO</span></h2>
-			<cards-maranhao></cards-maranhao>
+			<p>Os traslados para Jericoacora desde Fortaleza incluem qualquer ponto da cidade de Fortaleza, assim como o aeroporto.
+			A opçao da praia do Preá, muito solicitada para quem deseja maior tranquilidade ou para quem deseja fazer kite-surf
+			também está incluída nesse traslado.</p>
+			<p>Os traslados Barreirinhas-São Luís se referem ao traslado para visitar os Lençóis Maranhenses.</p>
+			<p>Para outras opçoes de traslados consulte-nos.</p>
+			<p class="text-note">*Os preços mostrados estão sujeitos a lotação no caso de veículo compartilhado. Pode contratar um veículo privativo cujo preço também mostramos.</p>
+			<div class="transfer-card__container">
+				<transfer-card 
+					header="Van Fortaleza-Jeri"
+					price="R$ 100"
+					fullPrice="R$ 1.800"
+					passengers="18"
+					detail="Sujeito a lotaçao. Van com wifi, TV, Ar">
+				</transfer-card>
+
+				<transfer-card 
+					header="SW4 Fortaleza-Jeri"
+					price="R$ 135"
+					fullPrice="R$ 800"
+					passengers="6"
+					detail="Sujeito a lotaçao. Ar">
+				</transfer-card>
+
+				<transfer-card 
+					header="Picape Fortaleza-Jeri"
+					price="R$ 150"
+					fullPrice="R$ 600"
+					passengers="4"
+					detail="Sujeito a lotaçao. Ar">
+				</transfer-card>
+
+				<transfer-card 
+					header="Van Barreirinhas-São Luis"
+					price="R$ 50"
+					fullPrice="R$ xxx"
+					passengers="xx"
+					detail="Sujeito a lotaçao. Van com wifi, TV, Ar">
+				</transfer-card>
+
+				<transfer-card 
+					header="4x4 Barreirinhas-São Luis"
+					price="R$ xxx"
+					fullPrice="R$ 600"
+					passengers="xx"
+					detail="Sujeito a lotaçao. Van com wifi, TV, Ar">
+				</transfer-card>
+
+				<transfer-card 
+					header="Taxi Barreirinhas-São Luis"
+					price="R$ 100"
+					fullPrice="R$ 400"
+					passengers="4"
+					detail="Sujeito a lotaçao. Van com wifi, TV, Ar">
+				</transfer-card>
+			</div>
+
+			<h2><span>PASSEIOS</span></h2>
+			 <p>Desenhamos uma oferta de passeios tanto em Jericoacoara como nos Lençóis Maranhenses para que sua experiência seja única.
+			 Pode consultar os preços e detalhes dos nossos passeios na seção <a href="">passeios</a></p>
 
 		</div>
 

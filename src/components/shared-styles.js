@@ -15,6 +15,7 @@ export const SharedStyles = html`
   :host {
     display: block;
     box-sizing: border-box;
+    --app-accent-color: #4717F6;
   }
 
   section {
@@ -32,11 +33,15 @@ export const SharedStyles = html`
     
   }
 
+
+
   h2 {
     font-size: 24px;
     text-align: center;
     color: var(--app-dark-text-color);
   }
+
+  
 
   @media (min-width: 460px) {
     h2 {

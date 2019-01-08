@@ -13,7 +13,7 @@ import { LitElement, html } from '@polymer/lit-element';
 import '@polymer/paper-fab/paper-fab.js';
 import { removeFromCartIcon } from './my-icons.js';
 
-class FixedButton extends LitElement {
+class FixedButtonWhatsapp extends LitElement {
   render() {
     return html`
       
@@ -29,7 +29,7 @@ class FixedButton extends LitElement {
 		}
       </style>
 	  
-	  <a href="https://api.whatsapp.com/send?phone=5588997817010"><paper-fab alt="whatsapp" src="images/whatsapp.svg"></paper-fab></a>
+	  <a target="_blank" href="https://api.whatsapp.com/send?phone=5588997817010"><paper-fab alt="whatsapp" src="images/whatsapp.svg"></paper-fab></a>
 
 	  
     `;
@@ -42,4 +42,4 @@ class FixedButton extends LitElement {
   }
 }
 
-window.customElements.define('fixed-button', FixedButton);
+window.customElements.define('fixed-button-whatsapp', FixedButtonWhatsapp);
