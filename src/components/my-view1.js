@@ -184,9 +184,7 @@ class MyView1 extends PageViewElement {
       body-title = We design your journey to experience the paradise.
       body-text = We want to take you with the maximum comfort and security at the best possible price. Visiting Jericoacoara or Lençóis Maranhenses is already a wonderful experience, but we want it to be unforgettable.       
     `,'en'); 
-
-      
-   
+ 
   }
 
 

@@ -8,12 +8,14 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 */
 
-import { LitElement, html } from '@polymer/lit-element';
+
 import { setPassiveTouchGestures } from '@polymer/polymer/lib/utils/settings.js';
 import { installMediaQueryWatcher } from 'pwa-helpers/media-query.js';
 import { installOfflineWatcher } from 'pwa-helpers/network.js';
 import { installRouter } from 'pwa-helpers/router.js';
 import { updateMetadata } from 'pwa-helpers/metadata.js';
+
+import {LocalizedLitElement, html, ftl} from '@dabolus/localized-lit-element';
 
 // These are the elements needed by this element.
 import '@polymer/app-layout/app-drawer/app-drawer.js';
@@ -28,7 +30,7 @@ import '@polymer/iron-dropdown/iron-dropdown.js';
 
 
 
-class MyApp extends LitElement {
+class MyApp extends LocalizedLitElement {
   render() {
     // Anything that's related to rendering should be done in here.
     return html`
@@ -311,10 +313,10 @@ class MyApp extends LitElement {
             </div>
             </div>
           </iron-dropdown>
-        <a ?selected="${this._page === 'view1'}" href="/view1">Inicio</a>
-        <a ?selected="${this._page === 'view2'}" href="/view2">Passeios</a>
+        <a ?selected="${this._page === 'view1'}" href="/view1">${this.localize('menu-home')}</a>
+        <a ?selected="${this._page === 'view2'}" href="/view2">${this.localize('menu-tours')}</a>
         <a ?selected="${this._page === 'view3'}" href="/view3">Blog</a>
-        <a ?selected="${this._page === 'view4'}" href="/view4">Ajuda</a>
+        <a ?selected="${this._page === 'view4'}" href="/view4">${this.localize('menu-help')}</a>
       </nav>
         
       
@@ -328,10 +330,10 @@ class MyApp extends LitElement {
     <app-drawer .opened="${this._drawerOpened}"
         @opened-changed="${this._drawerOpenedChanged}">
       <nav class="drawer-list">
-        <a ?selected="${this._page === 'view1'}" href="/view1">Inicio</a>
-        <a ?selected="${this._page === 'view2'}" href="/view2">Passeios</a>
+        <a ?selected="${this._page === 'view1'}" href="/view1">${this.localize('menu-home')}</a>
+        <a ?selected="${this._page === 'view2'}" href="/view2">${this.localize('menu-tours')}</a>
         <a ?selected="${this._page === 'view3'}" href="/view3">Blog</a>
-        <a ?selected="${this._page === 'view4'}" href="/view4">Ajuda</a>
+        <a ?selected="${this._page === 'view4'}" href="/view4">${this.localize('menu-help')}</a>
       </nav>
     </app-drawer>
 
@@ -351,12 +353,12 @@ class MyApp extends LitElement {
     <footer class="footer">
       <div class="footer__container">
         <div class="footer__company">
-          <h3>Sobre Nós</h3>
-          <p>A DiscoveryJeri é uma agência de turismo receptivo, que trabalha a excelência na oferta de traslados e passeios na vila de Jericoacoara.</p>
+          <h3>${this.localize('footer-title')}</h3>
+          <p>${this.localize('footer-company')}</p>     
         </div>
         
         <div class="footer__contact">
-          <h3>Contato</h3>
+          <h3>${this.localize('footer-contact')}</h3>
           <img src="../images/email-logo.svg" alt="email" /><a href="mailto:contatojericoacoara@gmail.com">contatojericoacoara@gmail.com</a>
           <p>Av Principal, S/N
           Preá - Cruz - Ceará </br>
@@ -365,11 +367,11 @@ class MyApp extends LitElement {
         </div>
 
         <div class="footer__faq">
-          <h3>Menu</h3>
-          <a href="">Passeios</a></br>
+          <h3>${this.localize('footer-menu')}</h3>
+          <a href="">${this.localize('menu-tours')}</a></br>
           <a href="">Blog</a></br>
-          <a href="">Ajuda</a></br>
-          <a href="">Políticas</a>   
+          <a href="">${this.localize('menu-help')}</a></br>
+          <a href="">${this.localize('menu-policies')}</a>   
         </div>
 
         <div class="footer__icons">
@@ -403,6 +405,7 @@ class MyApp extends LitElement {
       _offline: { type: Boolean },
       locale: {type: String},
       flag: {type: String},
+      locale: {type: String},
    
     }
   }
@@ -445,6 +448,40 @@ class MyApp extends LitElement {
         this.flag = '\ud83c\udde7\ud83c\uddf7';
       } 
     }
+
+    this.locale = 'en';
+    this.addResourceForLocale(ftl`
+      menu-home = Inicio
+      menu-tours = Passeios
+      menu-help = Ajuda
+      menu-policies = Políticas
+      footer-title = Sobre Nós
+      footer-company = A DiscoveryJeri é uma agência de turismo receptivo que trabalha a excelência na oferta de traslados e passeios na vila de Jericoacoara e Lençóis Maranhenses.
+      footer-contact = Contato
+      footer-menu = Menu
+    `,'pt');
+
+    this.addResourceForLocale(ftl`
+      menu-home = Inicio
+      menu-tours = Tours
+      menu-help = Ayuda
+      menu-policies = Políticas
+      footer-title = Sobre Nosotros
+      footer-company = DiscoveryJeri es una agencia de turismo que trabaja la excelencia en la oferta de transfers y tours en la villa de Jericoacoara y Lençóis Maranhenses.
+      footer-contact = Contacto
+      footer-menu = Menú
+    `,'es');
+
+    this.addResourceForLocale(ftl`
+      menu-home = Home
+      menu-tours = Tours
+      menu-help = Help
+      menu-policies = Policies
+      footer-title = About Us
+      footer-company = DiscoveryJeri is a tourism agency that works excellence in the offer of transfers and tours in the town of Jericoacoara and Lençóis Maranhenses.
+      footer-contact = Contact
+      footer-menu = Menu
+    `,'en');
 
 
   }

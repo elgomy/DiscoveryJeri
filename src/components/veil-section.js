@@ -347,7 +347,7 @@ class VeilSection extends LocalizedLitElement {
       prices-title = PRECIOS TOURS  
       transfer-subtitle = Transfer Fortaleza-Jeri desde R$ 100!!*  
       tour-subtitle =  Sube, abre los brazos y siente el paraíso 
-      prices-paragraph1 = Los transfers para Jericoacoara desde Fortalez incluyem cualquier punto de la ciudad de Fortaleza, así como el aeropuerto. La opción de la playa de Preá, muy solicitada para aquellos que desean una mayor tranquilidad o para quienes desean practicar kite-surf, también está incluída en este tránsfer.          
+      prices-paragraph1 = Los transfers para Jericoacoara desde Fortaleza incluyen cualquier punto de la ciudad de Fortaleza, así como el aeropuerto. La opción de la playa de Preá, muy solicitada para aquellos que desean una mayor tranquilidad o para quienes desean practicar kite-surf, también está incluída en este tránsfer.          
       prices-paragraph2 = Los transfers Barreirinhas-São Luís hacen referencia al transfer para visitar los Lençóis Maranhenses.
       prices-paragraph3 = Para otras opciones de transfers consúltenos.
       prices-paragraph4 = *Los precios mostrados están sujetos a lotación el caso del vehículo compartido. Puede contratar un veículo privado cuyo precio también mostramos a continuación.
