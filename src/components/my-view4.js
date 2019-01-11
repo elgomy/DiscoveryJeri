@@ -10,22 +10,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 import { html } from '@polymer/lit-element';
 import { PageViewElement } from './page-view-element.js';
-import './fixed-button.js';
 
-// These are the shared styles needed by this element.
-import { SharedStyles } from './shared-styles.js';
+
+
 
 class MyView4 extends PageViewElement {
   render() {
     return html`
-      ${SharedStyles}
+      <style>
 
-      <fixed-button></fixed-button>
-      <section>
-        <h2>yeah!!</h2>
-        <p>ohhh
-        </p>
-      </section>
+      </style>
+
+      view4
+     
     `
   }
 }

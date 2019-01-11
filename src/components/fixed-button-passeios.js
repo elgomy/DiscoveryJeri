@@ -12,34 +12,57 @@ import { LitElement, html } from '@polymer/lit-element';
 
 import '@polymer/paper-fab/paper-fab.js';
 import { removeFromCartIcon } from './my-icons.js';
+import '@polymer/paper-button/paper-button.js';
+import '@vaadin/vaadin-button/vaadin-button.js';
 
-class FixedButtonPasseios extends LitElement {
+class SoftTabs extends LitElement {
   render() {
     return html`
       
       <style>
-		paper-fab{
-			--paper-fab-background: #6dd569;
+		vaadin-button{
+			background: blue;
+			
 			display: scroll;
 	        position: fixed;
-	        bottom: 40px;
-	        right: 15px;
+	        bottom: 20px;
+	        left: calc(50% - 80px);
 	        z-index: 3;
+	        
 										
 		}
+
+
       </style>
+	  <!-- <paper-button raised>lençois</paper-button> -->
 	  
-	  <a href="https://api.whatsapp.com/send?phone=5588997817010"><paper-fab alt="whatsapp" src="images/whatsapp.svg"></paper-fab></a>
+	   <vaadin-button @click="${this.changePage}" theme="primary">${this.buttonLabel}</vaadin-button> 
+
+
 
 	  
     `;
   }
 
+   constructor(){
+    super();
+    this.buttonLabel = "Passeios Lençois"
+  }
+
   static get properties() {
     return {
- 
+ 		buttonLabel:{type: String}
+    }
+  }
+
+  changePage(){
+  	this.dispatchEvent(new CustomEvent('changePage',{bubbles: true, composed: true, detail:'passeios'}));
+    if(this.buttonLabel != "Passeios Jericoacoara"){
+      this.buttonLabel = "Passeios Jericoacoara"
+    }else{
+      this.buttonLabel = "Passeios Lençois"
     }
   }
 }
 
-window.customElements.define('fixed-button-passeios', FixedButtonPasseios);
+window.customElements.define('soft-tabs', SoftTabs);

@@ -80,11 +80,8 @@ class MyView1 extends PageViewElement {
 
         p{
           font-size: 1.2rem;
-
-        text-align: justify;
-          text-justify: inter-word;
-      
-          
+          text-align: justify;
+          text-justify: inter-word;         
         }
        
 

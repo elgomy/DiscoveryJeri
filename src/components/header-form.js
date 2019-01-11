@@ -107,7 +107,7 @@ class HeaderForm extends LitElement {
 
   static get properties() {
     return {
-      page: {type: Number, reflect: true },
+      page: {type: Number},
     }
   }
 
@@ -119,14 +119,7 @@ class HeaderForm extends LitElement {
     }
   }
 
-   vaadin(e){
-    if(e.currentTarget.id == "tab1"){
-      this.page = 0
-    }else{
-      this.page = 1
-    }
-    
-  }
+  
 }
 
 window.customElements.define('header-form', HeaderForm);

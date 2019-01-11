@@ -315,7 +315,7 @@ class VeilSection extends LocalizedLitElement {
 
 			<h2><span>${this.localize('tour-title')}</span></h2>
 			 <p>Desenhamos uma oferta de passeios tanto em Jericoacoara como nos Lençóis Maranhenses para que sua experiência seja única.
-			 Pode consultar os preços e detalhes dos nossos passeios na seção <a href="">passeios</a></p>
+			 Pode consultar os preços e detalhes dos nossos passeios na seção <a href="/view2">passeios</a></p>
 
 		</div>
 
@@ -344,7 +344,7 @@ class VeilSection extends LocalizedLitElement {
      this.addResourceForLocale(ftl`
       transfer-title = TRANSFERS
       tour-title = TOURS
-      prices-title = PRECIOS TOURS  
+      prices-title = PRECIOS TRANSFERS  
       transfer-subtitle = Transfer Fortaleza-Jeri desde R$ 100!!*  
       tour-subtitle =  Sube, abre los brazos y siente el paraíso 
       prices-paragraph1 = Los transfers para Jericoacoara desde Fortaleza incluyen cualquier punto de la ciudad de Fortaleza, así como el aeropuerto. La opción de la playa de Preá, muy solicitada para aquellos que desean una mayor tranquilidad o para quienes desean practicar kite-surf, también está incluída en este tránsfer.          
@@ -355,7 +355,7 @@ class VeilSection extends LocalizedLitElement {
     this.addResourceForLocale(ftl`
       transfer-title = TRANSFERS
       tour-title = TOURS
-      prices-title = TOURS PRICES    
+      prices-title = TRANSFER PRICES    
       transfer-subtitle =  Transfer Fortaleza-Jeri from R$ 100!!* 
       tour-subtitle =  Get in, open your arms and feel the paradise  
       prices-paragraph1 = Transfers to Jericoacoara from Fortaleza include any point in the city of Fortaleza, as well as the airport. The beach option of Preá, highly requested for those who want more tranquility or for those who wish to practice kite-surfing, is also included in this transfer.

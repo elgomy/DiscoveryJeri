@@ -14,8 +14,13 @@ import { PageViewElement } from './page-view-element.js';
 import { SharedStyles } from './shared-styles.js';
 
 import './fixed-button-whatsapp.js';
-import './promotional-text.js';
-import './grid-passeios1.js';
+
+
+import './soft-tab.js';
+import './passeios-jeri.js';
+import './passeios-lençois.js';
+
+import '@polymer/iron-pages/iron-pages.js';
 
 
 
@@ -26,20 +31,42 @@ class MyView2 extends PageViewElement {
 
       <style>
 
+      .pages{
+        width: 80%;      
+        margin: 0 auto;
+      }
+
+      .tabs{
+        width: 80%;      
+        margin: 0 auto;
+        padding: 2rem;
+       
+      }
+
       </style>
 
       <fixed-button-whatsapp></fixed-button-whatsapp>
 
       <section>
-        <p>Passeios que sao momentos, momentos que sao experiências, experiências que sao lembranças.
-         Lembranças que queremos que sejam únicas. Por isso escolhe descobrir, escolhe DiscoveryJeri.</p> 
-
-                    
+        <h2>Passeios que são momentos, momentos que são lembranças,
+         lembranças que queremos que sejam únicas. Por isso escolhe descobrir, escolhe DiscoveryJeri.</h2>                  
       </section>
 
-      <section>
-        <grid-passeios1></grid-passeios1>
-      </section>
+      <div class="tabs">
+        <soft-tab></soft-tab>
+      </div>
+        
+      <div class="pages">
+        <iron-pages selected="${this.ironPage}">
+          <div name="page1" class="page">
+            <passeios-jeri></passeios-jeri>   
+          </div>   
+          <div name="page2" class="page">
+            <passeios-lençois></passeios-lençois>    
+          </div>
+        </iron-pages>
+      </div>    
+      
       <section>
         
 
@@ -48,14 +75,36 @@ class MyView2 extends PageViewElement {
     `;
   }
 
-  static get properties() { return {
-   
-  }}
-
-  constructor() {
-    super();
-   
+  static get properties() {
+    return {
+      ironPage: {type: Number},
+      buttonLabel: {type: String},
+    }
   }
+
+  constructor(){
+    super();
+    this.ironPage = 0;
+    this.addEventListener('selectPage', (e) => this.changeView(e));
+  }
+
+
+  sectionTab(e){
+    console.log(e.currentTarget.id )
+   /* if(e.currentTarget.id == "sectionTab1"){
+      this.ironPage = 0
+    }else{
+      this.ironPage = 1
+    } */
+  }
+
+  changeView(e){
+    if(e.detail == "softTab1"){
+      this.ironPage = 0
+    }else{
+      this.ironPage = 1
+    }
+  } 
 
 
 }

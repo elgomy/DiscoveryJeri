@@ -560,7 +560,7 @@ class MyApp extends LocalizedLitElement {
           // navigating to view1 after my-view1.js is loaded.
           console.log('cargado');
 
-          var footer = this.shadowRoot.querySelector('footer');
+        //  var footer = this.shadowRoot.querySelector('footer');
         //  footer.className = "footer-display"
 
         });;
